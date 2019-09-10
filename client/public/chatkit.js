@@ -1,10 +1,9 @@
-import React from 'react'
-import Chatkit from '../node_modules/@pusher/chatkit-client/dist/web/chatkit'
+/*import React from 'react'
+import Chatkit from '@pusher/chatkit'
 import MessageList from './components/messageList'
 import SendMessageForm from './components/sendmessageform'
 import RoomList from './components/roomlist'
 import NewRoomForm from './components/newroomform'
-import './App.css'
 
 import { tokenUrl, instanceLocator } from './config'
 
@@ -23,11 +22,11 @@ class App extends React.Component {
         this.getRooms = this.getRooms.bind(this)
         this.createRoom = this.createRoom.bind(this)
     } 
-    //mounts chatmanager and connects
+    
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator,
-            userId: '01',
+            userId: 'perborgen',
             tokenProvider: new Chatkit.TokenProvider({
                 url: tokenUrl
             })
@@ -40,7 +39,7 @@ class App extends React.Component {
         })
         .catch(err => console.log('error on connecting: ', err))
     }
-    //method to display joinable rooms
+    
     getRooms() {
         this.currentUser.getJoinableRooms()
         .then(joinableRooms => {
@@ -51,7 +50,7 @@ class App extends React.Component {
         })
         .catch(err => console.log('error on joinableRooms: ', err))
     }
-    //method to subscribe to rooms
+    
     subscribeToRoom(roomId) {
         this.setState({ messages: [] })
         this.currentUser.subscribeToRoom({
@@ -73,14 +72,14 @@ class App extends React.Component {
         })
         .catch(err => console.log('error on subscribing to room: ', err))
     }
-    //method to send message, could be used to parse the text value and use for translation
+    
     sendMessage(text) {
         this.currentUser.sendMessage({
             text,
             roomId: this.state.roomId
         })
     }
-    //method to create room
+    
     createRoom(name) {
         this.currentUser.createRoom({
             name
@@ -110,4 +109,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default App*/
