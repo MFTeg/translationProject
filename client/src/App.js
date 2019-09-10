@@ -1,7 +1,14 @@
 import React from "react";
+import Signup from "./Signup";
+import Signin from "./Signin";
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return (
+    <div>
+      {/* <Signup /> */}
+      <Signin />
+    </div>
+  );
 }
 
 export default App;
