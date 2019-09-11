@@ -7,6 +7,7 @@ var message = document.getElementById('message'),
       btn = document.getElementById('send'),
       output = document.getElementById('output'),
       feedback = document.getElementById('feedback');
+      submit = document.getElementById('create-room-btn');
 
 // Emit events
 btn.addEventListener('click', function(){
@@ -31,4 +32,11 @@ socket.on('chat', function(data){
 
 socket.on('typing', function(data){
     feedback.innerHTML = '<p><em>' + data + ' is typing a message...</em></p>';
+});
+
+submit.addEventListener('click', function(){
+    var newRoom = getElementById('newroom').value().trim();
+    var socket = io.connect();
+socket.emit('create', newRoom);
+console.log(newRoom);
 });

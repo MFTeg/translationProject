@@ -48,4 +48,10 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('typing', data);
     });
 
+    io.sockets.on('connection', function(socket) {
+        socket.on('create', function(room) {
+          socket.join(newRoom);
+        });
+      });
+
 });
