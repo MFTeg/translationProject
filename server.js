@@ -2,9 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 300;
 
 const User = require("./models/user.js");
+
+mongoose.connect('mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority', 
+  {useNewUrlParser: true})
+  .then(() => {console.log('Database connected').catch(error => {console.log(error);
+  });
+});
 
 app.use(
   bodyParser.urlencoded({
@@ -48,14 +54,6 @@ app.post("/signin", function(req, res) {
     });
 });
 
-mongoose
-  .connect(
-    "mongodb+srv://Mesay:Mesi463946@cluster0-updmb.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("DB connected");
-  });
 
 // Start the API server
 app.listen(PORT, function() {

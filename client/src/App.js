@@ -1,6 +1,6 @@
 import React from "react";
-import Signup from "./Signup";
-import Signin from "./Signin";
+// import Signup from "./Signup";
+// import Signin from "./Signin";
 import Chatkit from '../node_modules/@pusher/chatkit-client/dist/web/chatkit'
 import MessageList from './components/messageList'
 import SendMessageForm from './components/sendmessageform'
