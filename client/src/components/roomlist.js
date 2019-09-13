@@ -13,7 +13,11 @@ class RoomList extends React.Component {
                             <li key={room.id} className={"room " + active}>
                                 <a
                                     onClick={() => this.props.subscribeToRoom(room.id)}
+<<<<<<< HEAD
                                     href="#">
+=======
+                                    href="#top">
+>>>>>>> a55c669158ede2fd9e3cadd0f53158e5619927a1
                                     # {room.name}
                                 </a>
                             </li>

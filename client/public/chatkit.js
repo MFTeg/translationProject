@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*import React from 'react'
+=======
+import React from 'react'
+>>>>>>> a55c669158ede2fd9e3cadd0f53158e5619927a1
 import Chatkit from '@pusher/chatkit'
 import MessageList from './components/messageList'
 import SendMessageForm from './components/sendmessageform'
@@ -109,4 +113,8 @@ class App extends React.Component {
     }
 }
 
+<<<<<<< HEAD
 export default App*/
+=======
+export default App
+>>>>>>> a55c669158ede2fd9e3cadd0f53158e5619927a1
