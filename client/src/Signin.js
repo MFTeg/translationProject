@@ -20,6 +20,9 @@ class Signin extends React.Component {
     let data = this.state;
     axios.post("/signin", data).then(response => {
       console.log(response.data);
+      //  Returns the user id, which can then be stored in localStorage
+      localStorage.clear();
+      localStorage.setItem("_id", response.data);
     });
   };
 
