@@ -6,8 +6,9 @@ class Message extends React.Component {
     msgContent: "",
     language: "",
     senderId: localStorage.getItem("_id"),
-    reciverId: "5d758419210d5f2a7c6930d0",
-    receiver: ""
+    reciverId: "",
+    receiver: "",
+    receiverEmail: ""
   };
 
   messageInfo = event => {
@@ -65,8 +66,8 @@ class Message extends React.Component {
 
         <label htmlFor="receiver-search">Send to</label>
         <input
-          id="receiverList"
-          type="search"
+          id="receiverEmail"
+          type="text"
           onChange={event => this.messageInfo(event)}
         />
 

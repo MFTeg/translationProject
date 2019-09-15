@@ -114,6 +114,8 @@ app.post("/users", function(req, res) {
 app.get("/messages", function(req, res) {
   console.log("Get messages");
   Message.find({})
+    .populate("senderId")
+    .populate("reciverId")
     .then(data => {
       res.json(data);
     })
@@ -125,11 +127,24 @@ app.get("/messages", function(req, res) {
 app.post("/send", function(req, res) {
   console.log("Send message");
   console.log(req.body);
-  Message.create(req.body)
-    .then(function(dbMessage) {
-      // If saved successfully, send the the new User document to the client
-      res.json(dbMessage);
+  User.findOne({
+    email: req.body.receiverEmail
+  })
+    .then(data => {
+      console.log(data);
+
+      let messageData = {
+        language: req.body.language,
+        senderId: req.body.senderId,
+        reciverId: data._id,
+        msgContent: req.body.msgContent
+      };
+      Message.create(messageData).then(function(dbMessage) {
+        // If saved successfully, send the the new User document to the client
+        res.json(dbMessage);
+      });
     })
+
     .catch(function(err) {
       // If an error occurs, send the error to the client
       res.json(err);
