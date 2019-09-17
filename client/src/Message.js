@@ -5,8 +5,10 @@ class Message extends React.Component {
   state = {
     msgContent: "",
     language: "",
-    senderId: "5d758419210d5f2a7c6930d0",
-    reciverId: "5d758419210d5f2a7c6930d0"
+    senderId: localStorage.getItem("_id"),
+    reciverId: "",
+    receiver: "",
+    receiverEmail: ""
   };
 
   messageInfo = event => {
@@ -15,6 +17,10 @@ class Message extends React.Component {
     this.setState({
       [event.target.id]: event.target.value
     });
+
+    if (event.target.id === "receiverList") {
+      this.getReceivers(event.target.value);
+    }
   };
 
   inputMessage = () => {
@@ -23,6 +29,20 @@ class Message extends React.Component {
     axios.post("/send", data).then(response => {
       console.log(response.data);
     });
+  };
+
+  getReceivers = query => {
+    //  Get a list of message receivers
+    axios
+      .post("/users", {
+        query: query
+      })
+      .then(response => {
+        console.log(response.data);
+        this.setState({
+          receivers: response.data
+        });
+      });
   };
 
   render() {
@@ -41,6 +61,13 @@ class Message extends React.Component {
         <input
           type="text"
           id="language"
+          onChange={event => this.messageInfo(event)}
+        />
+
+        <label htmlFor="receiver-search">Send to</label>
+        <input
+          id="receiverEmail"
+          type="text"
           onChange={event => this.messageInfo(event)}
         />
 
