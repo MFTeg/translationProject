@@ -1,18 +1,24 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-// import SignIn from './Signin'
-// import SignUp from './Signup'
-function App() {
-  return (
-    <div className="App">
-      {/* <SignIn/>
-      <SignUp/> */}
-      
-    </div>
-  );
+import Signin from './components/Signin';
+import Signup from './components/Signup';
+import Navigation from './components/Navigation';
+ 
+class App extends Component {
+  render() {
+    return (      
+       <BrowserRouter>
+        <div>
+          <Navigation />
+            <Switch>
+             <Route path="/Signin" component={Signin}/>
+             <Route path="/Signup" component={Signup}/>
+           </Switch>
+        </div> 
+      </BrowserRouter>
+    );
+  }
 }
-
+ 
 export default App;
-
