@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//  App routes
 app.post("/data", function(req, res) {
   console.log(req.body);
   User.create(req.body)
@@ -204,19 +205,38 @@ io.on("connection", socket => {
 
   // Handle chat event
   socket.on("chat", function(data) {
-    console.log(data.handle);
-    console.log(data.message);
+    console.log("Getting socket data");
+    console.log(data);
 
-    if (data.handle === "bob") {
-      var lang = "ru";
-    } else {
-      var lang = "es";
-    }
-    translate.translate(data.messageT, { to: lang }, function(err, res) {
-      console.log(res.text);
-      data.messageT = res.text;
-      io.sockets.emit("chat", data);
-    });
+    // if (data.handle === "bob") {
+    //   var lang = "ru";
+    // } else {
+    //   var lang = "es";
+    // }
+
+    //  Search for data.handle in the User collection and return the preferred language of the user
+    let userLang;
+    User.findOne({
+      email: data.handle
+    })
+      .then(user => {
+        userLang = user.language;
+        data.handle = user.fullName;
+
+        User.findById(data.senderId).then(dbUser => {
+          data.sender = dbUser.fullName;
+        });
+
+        translate.translate(data.message, { to: userLang }, function(err, res) {
+          console.log("Get message text");
+          console.log(res.text);
+          data.messageT = res.text;
+          io.sockets.emit("chat", data);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   });
 
   // Handle typing event

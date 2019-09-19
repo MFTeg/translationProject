@@ -27,33 +27,38 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div>
-        <br />
-        <br />
-        <input
-          type="text"
-          id="fullName"
-          onChange={event => this.signupInfo(event)}
-        />
-        <input
-          type="text"
-          id="email"
-          onChange={event => this.signupInfo(event)}
-        />
-        <input
-          type="password"
-          id="password"
-          onChange={event => this.signupInfo(event)}
-        />
-        <select id="language" onChange={event => this.signupInfo(event)}>
-          <option value="en">English</option>
-          <option value="es">Espanish</option>
-          <option value="it">Italian</option>
-          <option value="ru">Russian</option>
-        </select>
-        <button id="buttonSignUp" onClick={() => this.signUp()}>
-          Sign Up
-        </button>
+      <div className="row">
+        <div className="col s9">
+          <br />
+          <br />
+          <input
+            type="text"
+            id="fullName"
+            onChange={event => this.signupInfo(event)}
+          />
+          <input
+            type="text"
+            id="email"
+            onChange={event => this.signupInfo(event)}
+          />
+          <input
+            type="password"
+            id="password"
+            onChange={event => this.signupInfo(event)}
+          />
+
+          <div className="input-field col s12">
+            <select id="language" onChange={event => this.signupInfo(event)}>
+              <option value="en">English</option>
+              <option value="es">Espanish</option>
+              <option value="it">Italian</option>
+              <option value="ru">Russian</option>
+            </select>
+          </div>
+          <button id="buttonSignUp" onClick={() => this.signUp()}>
+            Sign Up
+          </button>
+        </div>
       </div>
     );
   }

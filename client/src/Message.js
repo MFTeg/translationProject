@@ -13,6 +13,16 @@ class Message extends React.Component {
     receiverEmail: ""
   };
 
+  componentDidMount() {
+    socket.on("chat", function(data) {
+      console.log(data);
+      let message = document.getElementById("output").innerHTML;
+      message +=
+        "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
+      document.getElementById("output").innerHTML = message;
+    });
+  }
+
   messageInfo = event => {
     console.log(event.target.value);
     console.log(event.target.id);
@@ -29,11 +39,13 @@ class Message extends React.Component {
     console.log(this.state);
     let data = this.state;
     axios.post("/send", data).then(response => {
+      console.log("Sending");
+      console.log(response);
       console.log(response.data);
       socket.emit("chat", {
-        message: "dog",
-        handle: "mes@code.com",
-        messageT: "dog"
+        senderId: data.senderId,
+        message: data.msgContent,
+        handle: data.receiverEmail
       });
     });
   };
