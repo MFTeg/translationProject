@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
-
+import io from "socket.io-client";
+import "./Message.css";
+let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
   state = {
     msgContent: "",
@@ -28,6 +30,11 @@ class Message extends React.Component {
     let data = this.state;
     axios.post("/send", data).then(response => {
       console.log(response.data);
+      socket.emit("chat", {
+        message: "dog",
+        handle: "mes@code.com",
+        messageT: "dog"
+      });
     });
   };
 
@@ -74,6 +81,11 @@ class Message extends React.Component {
         <button id="buttonMessage" onClick={() => this.inputMessage()}>
           Input Message
         </button>
+
+        <div id="chat-window">
+          <div id="output"></div>
+          <div id="feedback"></div>
+        </div>
       </div>
     );
   }

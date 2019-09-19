@@ -2,19 +2,28 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const socket = require("socket.io");
+const translate = require("yandex-translate")(
+  "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
+);
 const app = express();
-const PORT = process.env.PORT || 300;
-
+//const PORT = process.env.PORT || 300;
+const PORT = process.env.PORT || 3001;
 const User = require("./models/user.js");
 const Message = require("./models/message");
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
 
-mongoose.connect('mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority', 
-  {useNewUrlParser: true})
-  .then(() => {console.log('Database connected').catch(error => {console.log(error);
+mongoose
+  .connect(
+    "mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority",
+    { useNewUrlParser: true }
+  )
+  .then(() => {
+    console.log("Database connected").catch(error => {
+      console.log(error);
+    });
   });
-});
 
 app.use(
   bodyParser.urlencoded({
@@ -195,6 +204,40 @@ mongoose
   });
 
 // Start the API server
-app.listen(PORT, function() {
+let server = app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
+
+// Socket setup & pass server
+var io = socket(server);
+io.on("connection", socket => {
+  console.log("made socket connection", socket.id);
+
+  // Handle chat event
+  socket.on("chat", function(data) {
+    console.log(data.handle);
+    console.log(data.message);
+
+    if (data.handle === "bob") {
+      var lang = "ru";
+    } else {
+      var lang = "es";
+    }
+    translate.translate(data.messageT, { to: lang }, function(err, res) {
+      console.log(res.text);
+      data.messageT = res.text;
+      io.sockets.emit("chat", data);
+    });
+  });
+
+  // Handle typing event
+  socket.on("typing", function(data) {
+    socket.broadcast.emit("typing", data);
+  });
+
+  io.sockets.on("connection", function(socket) {
+    socket.on("create", function(room) {
+      socket.join(newRoom);
+    });
+  });
 });
