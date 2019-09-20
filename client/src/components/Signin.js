@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Chat from '../components/Chat';
+// import Chat from '../components/Chat';
 
 class Signin extends React.Component {
   state = {

@@ -1,5 +1,5 @@
 import React from "react";
-import { link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
 import LogoImg from "../../Image/logoImg.png";
@@ -19,22 +19,18 @@ function Navbar() {
             <a href="#">WorldTime</a>
           </li>
           <li>
-            <a
-              href="#"
+            <Link to="/Signin"
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1"
-            >
-              Sign In{" "}
-            </a>{" "}
+              class="btn-large waves-effect waves-light blue lighten-1">
+              Sign In
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link to="/Signup"
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1"
-            >
+              class="btn-large waves-effect waves-light blue lighten-1">
               Sign Up
-            </a>
+            </Link>
           </li>
         </ul>
 

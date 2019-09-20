@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import "./Message.css";
+import "../Message.css";
 let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
   state = {

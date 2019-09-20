@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
-import Signin from './components/Signin';
-import Signup from './components/Signup';
-import Navigation from './components/Navigation';
-import Chat from '../src/components/Chat';
-=======
 
 import React from "react";
-import Signup from "./Signup.js";
-import Signin from "./Signin.js";
-import Message from "./Message.js";
+import Signup from "./components/Signup";
+import Signin from "./components/Signin";
+import Message from "./components/Message";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -34,25 +25,4 @@ function App() {
   );
 }
 
-export default App;
->>>>>>> dc428a6201c4985de60aa56bfb78adea4898ed5d
-
- 
-class App extends Component {
-  render() {
-    return (      
-       <BrowserRouter>
-        <div>
-          <Navigation />
-            <Switch>
-             <Route path="/Signin" component={Signin}/>
-             <Route path="/Signup" component={Signup}/>
-             <Route path="/chat" component={Chat}/>
-           </Switch>
-        </div> 
-      </BrowserRouter>
-    );
-  }
-}
- 
 export default App;
