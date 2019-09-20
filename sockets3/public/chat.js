@@ -50,4 +50,5 @@ submit.addEventListener("click", function() {
   var socket = io.connect();
   socket.emit("create", newRoom);
   console.log(newRoom);
+
 });

@@ -1,3 +1,4 @@
+
 import React from "react";
 import Signup from "./components/Signup/Signup.js";
 import Signin from "./components/Signin/Signin";
@@ -7,8 +8,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import Message from "./Message";
 
+// import SignIn from './Signin'
+// import SignUp from './Signup'
 function App() {
   return (
+
     <Router>
       <div>
         {/* <NavTabs /> */}
@@ -22,3 +26,4 @@ function App() {
 }
 
 export default App;
+
