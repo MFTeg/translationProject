@@ -1,4 +1,9 @@
 // Make connection
+
+
+
+  // constructing a queryURL variable we will use instead of the literal string inside of the ajax method
+ 
 var socket = io.connect('http://localhost:4000');
 
 // Query DOM
@@ -26,6 +31,17 @@ message.addEventListener('keypress', function(){
 
 // Listen for events
 socket.on('chat', function(data){
+    var text= 'hello';
+    var lang= 'fr'
+    var key = 'trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853'
+    var queryURL = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853&text=hello&lang=fr"
+    var queryURL2 = "https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + key + "&text=" + text + "&lang=" + lang
+    $.ajax({
+      url: queryURL2,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response.text);
+    });
     feedback.innerHTML = '';
     output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message +'<br>'+  data.messageT + '<br></p>';
 });
