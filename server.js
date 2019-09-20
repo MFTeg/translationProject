@@ -14,6 +14,12 @@ const Message = require("./models/message");
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
 
+mongoose.connect('mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority', 
+  {useNewUrlParser: true})
+  .then(() => {console.log('Database connected').catch(error => {console.log(error);
+  });
+});
+
 app.use(
   bodyParser.urlencoded({
     extended: false
