@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Navigation from './components/Navigation';
+import Chat from '../src/components/Chat';
+
  
 class App extends Component {
   render() {
@@ -14,6 +16,7 @@ class App extends Component {
             <Switch>
              <Route path="/Signin" component={Signin}/>
              <Route path="/Signup" component={Signup}/>
+             <Route path="/chat" component={Chat}/>
            </Switch>
         </div> 
       </BrowserRouter>

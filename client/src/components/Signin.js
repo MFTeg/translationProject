@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Chat from '../components/Chat';
 
 class Signin extends React.Component {
   state = {
@@ -41,8 +42,10 @@ class Signin extends React.Component {
           id="password"
           onChange={event => this.signInInfo(event)}
         />
-        <button id="buttonSignIn" onClick={() => this.signIn()}>
-          Sign In
+        <button id="buttonSignIn" onClick={() => this.signIn(
+          <Chat/>
+        )}>
+          
         </button>
       </div>
     );
