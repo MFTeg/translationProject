@@ -29,24 +29,30 @@ class Signin extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         <br />
         <br />
-        <input
-          type="text"
-          id="email"
-          onChange={event => this.signInInfo(event)}
-        />
-        <input
-          type="password"
-          id="password"
-          onChange={event => this.signInInfo(event)}
-        />
-        <button id="buttonSignIn" onClick={() => this.signIn(
-          <Chat/>
-        )}>
-          
-        </button>
+        <div className="col s12">
+          <input
+            type="text"
+            id="email"
+            className="col s9"
+            onChange={event => this.signInInfo(event)}
+          />
+          <input
+            type="password"
+            id="password"
+            className="col s9"
+            onChange={event => this.signInInfo(event)}
+          />
+          <button
+            className="col s4"
+            id="buttonSignIn"
+            onClick={() => this.signIn()}
+          >
+            Sign In
+          </button>
+        </div>
       </div>
     );
   }
