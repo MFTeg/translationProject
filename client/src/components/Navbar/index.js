@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="blue" role="navigation">
       <div className="nav-wrapper container">
-        <a href="#">
+        <a href="/">
           <img className="circle" src={LogoImg} />
         </a>
         <div id="logo-container" class="brand-logo">
@@ -16,7 +16,7 @@ function Navbar() {
         </div>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="#">WorldTime</a>
+            WorldTime
           </li>
           <li>
             <Link to="/Signin"

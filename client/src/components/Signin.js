@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Navbar from "./Navbar";
+// import {Link} from "react-router-dom";
 // import Chat from '../components/Chat';
 
 class Signin extends React.Component {
@@ -30,25 +32,32 @@ class Signin extends React.Component {
   render() {
     return (
       <div className="row">
+      <Navbar/>
         <br />
         <br />
         <div className="col s12">
           <input
-            type="text"
+            placeholder="Enter Email"
+            type="email"
             id="email"
             className="col s9"
             onChange={event => this.signInInfo(event)}
           />
           <input
+            placeholder="Enter Password"
             type="password"
             id="password"
             className="col s9"
             onChange={event => this.signInInfo(event)}
           />
           <button
-            className="col s4"
+            //move button to bottom
+            className="btn btn-primary"
             id="buttonSignIn"
-            onClick={() => this.signIn()}
+            onClick={() => this.signIn(
+              //Cant link to 3000/Chat becuase reroutes to 3001/Chat (not valid)
+              //after onclick confirm email and pw then direct to Chat
+            )}
           >
             Sign In
           </button>
