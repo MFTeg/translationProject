@@ -1,8 +1,8 @@
 
 import React from "react";
-import Signup from "./components/Signup";
-import Signin from "./components/Signin";
-import Message from "./components/Message";
+import Signup from "./components/Signup/Signup";
+import Signin from "./components/Signin/Signin";
+import Message from "./components/Message/Message";
 import Home from "./components/Home";
 import Chat from "./components/Chat";
 import { BrowserRouter as Router, Route } from "react-router-dom";

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/index";
 
 class Signup extends React.Component {
   state = {

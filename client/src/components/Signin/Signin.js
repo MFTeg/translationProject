@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar/index";
 // import {Link} from "react-router-dom";
 // import Chat from '../components/Chat';
 
