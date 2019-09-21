@@ -24,7 +24,7 @@ function Navbar() {
               id="download-button"
               class="btn-large waves-effect waves-light blue lighten-1"
             >
-              Sign In{" "}
+              {/* Sign In{" "}
             </a>{" "}
           </li>
           <li>
@@ -32,7 +32,7 @@ function Navbar() {
               href="#"
               id="download-button"
               class="btn-large waves-effect waves-light blue lighten-1"
-            >
+            > */}
               Sign Up
             </a>
           </li>
