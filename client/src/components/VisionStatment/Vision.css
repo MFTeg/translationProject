@@ -1,0 +1,14 @@
+/* .visionContainer,
+/* #vision, */
+/* #visionRow,
+#visionSection {
+  background-color: #6da4d1;
+  padding: 20px;
+  height: 250px; 
+} */
+#visionSection {
+  background-color: #6da4d1;
+  margin: 50px 50px 505px 50px;
+  padding: 30px;
+  /* height: 250px; */
+}
