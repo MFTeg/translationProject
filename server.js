@@ -2,9 +2,13 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const socket = require("socket.io");
+const translate = require("yandex-translate")(
+  "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
+);
 const app = express();
-const PORT = process.env.PORT || 300;
-
+//const PORT = process.env.PORT || 300;
+const PORT = process.env.PORT || 3001;
 const User = require("./models/user.js");
 const Message = require("./models/message");
 // console.log(process.env.MONGO_USERNAME);
@@ -32,6 +36,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+//  App routes
 app.post("/data", function(req, res) {
   console.log(req.body);
   User.create(req.body)
@@ -195,6 +200,59 @@ mongoose
   });
 
 // Start the API server
-app.listen(PORT, function() {
+let server = app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
+
+// Socket setup & pass server
+var io = socket(server);
+io.on("connection", socket => {
+  console.log("made socket connection", socket.id);
+
+  // Handle chat event
+  socket.on("chat", function(data) {
+    console.log("Getting socket data");
+    console.log(data);
+
+    // if (data.handle === "bob") {
+    //   var lang = "ru";
+    // } else {
+    //   var lang = "es";
+    // }
+
+    //  Search for data.handle in the User collection and return the preferred language of the user
+    let userLang;
+    User.findOne({
+      email: data.handle
+    })
+      .then(user => {
+        userLang = user.language;
+        data.handle = user.fullName;
+
+        User.findById(data.senderId).then(dbUser => {
+          data.sender = dbUser.fullName;
+        });
+
+        translate.translate(data.message, { to: userLang }, function(err, res) {
+          console.log("Get message text");
+          console.log(res.text);
+          data.messageT = res.text;
+          io.sockets.emit("chat", data);
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+
+  // Handle typing event
+  socket.on("typing", function(data) {
+    socket.broadcast.emit("typing", data);
+  });
+
+  io.sockets.on("connection", function(socket) {
+    socket.on("create", function(room) {
+      socket.join(newRoom);
+    });
+  });
 });
