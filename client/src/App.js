@@ -1,9 +1,8 @@
-
 import React from "react";
-import Signup from "./components/Signup/Signup.js";
-import Signin from "./components/Signin/Signin";
-import Message from "./components/Message/Message.js";
-import Home from "./components/Home";
+import Signup from "./components/Pages/Signup";
+import Signin from "./components/Pages/Signin";
+import Message from "./components/Pages/Message";
+import Home from "./components/Pages/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import Message from "./Message";
@@ -12,7 +11,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import SignUp from './Signup'
 function App() {
   return (
-
     <Router>
       <div>
         {/* <NavTabs /> */}
@@ -26,4 +24,3 @@ function App() {
 }
 
 export default App;
-

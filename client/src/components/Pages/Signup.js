@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 class Signup extends React.Component {
   state = {
@@ -28,19 +30,23 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="row">
+        <Navbar />
         <div className="col s9">
           <br />
           <br />
+          <label htmlFor="fullName">Full Name</label>
           <input
             type="text"
             id="fullName"
             onChange={event => this.signupInfo(event)}
           />
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             id="email"
             onChange={event => this.signupInfo(event)}
           />
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -59,6 +65,7 @@ class Signup extends React.Component {
             Sign Up
           </button>
         </div>
+        <Footer />
       </div>
     );
   }
