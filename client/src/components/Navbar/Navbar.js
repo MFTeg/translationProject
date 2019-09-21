@@ -6,34 +6,40 @@ import LogoImg from "../../Image/logoImg.png";
 
 function Navbar() {
   return (
-    <nav className="blue" role="navigation">
+    <nav id="navbar" role="navigation">
       <div className="nav-wrapper container">
-        <a href="#">
+        <a href={"/"}>
           <img className="circle" src={LogoImg} />
         </a>
-        <a id="logo-container" href="#" class="brand-logo">
-          Logo
+        <a id="logo-container" href={"/"} class="brand-logo">
+          Translation Station
         </a>
-        <ul class="right hide-on-med-and-down">
-          <li>
-            <a href="#">WorldTime</a>
+        <ul className="right hide-on-med-and-down">
+          <li className="button">
+            <a
+              href={"/Signup"}
+              id="download-button"
+              className="btn-large waves-effect waves-light blue lighten-1"
+            >
+              Sign Up
+            </a>
           </li>
           <li>
             <a
-              href="#"
+              href={"/Signin"}
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1"
+              className="btn-large waves-effect waves-light blue lighten-1"
             >
               Sign In{" "}
             </a>{" "}
           </li>
           <li>
             <a
-              href="#"
+              href={"/Message"}
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1"
+              className="btn-large waves-effect waves-light blue lighten-1"
             >
-              Sign Up
+              Message
             </a>
           </li>
         </ul>

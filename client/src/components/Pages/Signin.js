@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
-import "./Signin.css";
+import "../Signin/Signin.css";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
@@ -31,11 +33,12 @@ class Signin extends React.Component {
   render() {
     return (
       <div className="row">
+        <Navbar />
         <div className="col s12 m5 l3" id="containerSmall">
           <div className="nav-wrapper container">
-            <a href="/" className="brand-logo">
+            {/* <a href="/" className="brand-logo">
               <img className="circle" src={LogoImg} />
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -44,12 +47,14 @@ class Signin extends React.Component {
             {/* <a href="#"><img class="circles" src=""></a>
              */}
             {/* <div className="col s12"> */}
+            <label htmlFor="email">Email</label>
             <input
               type="text"
               id="email"
               // className="col s9"
               onChange={event => this.signInInfo(event)}
             />
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -65,6 +70,7 @@ class Signin extends React.Component {
             </button>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
