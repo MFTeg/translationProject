@@ -11,9 +11,9 @@ function Navbar() {
         <a href="#">
           <img className="circle" src={LogoImg} />
         </a>
-        <a id="logo-container" href="#" class="brand-logo">
+        <div id="logo-container" class="brand-logo">
           Logo
-        </a>
+        </div>
         <ul class="right hide-on-med-and-down">
           <li>
             <a href="#">WorldTime</a>
@@ -28,7 +28,7 @@ function Navbar() {
           <li>
             <Link to="/Signup"
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1">
+              className="btn-large waves-effect waves-light blue lighten-1">
               Sign Up
             </Link>
           </li>
