@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
-// import LogoImg from "../../Image/logoImg.png";
+import LogoImg from "../../Image/logoImg.png";
 
 function Navbar() {
   return (
     <nav id="navbar" role="navigation">
       <div className="nav-wrapper container">
         <Link to="/">
-          {/* <img src="./image/cute-cat.jpeg" alt="Placeholder" /> */}
-          <img className="circle" src="LogoImg" alt="circleLogo" />
+          <img className="circle" src={LogoImg} alt="circleLogo" />
         </Link>
 
         <Link to="/" id="logo-container" class="brand-logo">
