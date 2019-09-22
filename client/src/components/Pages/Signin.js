@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import "../Signin/Signin.css";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import LogoImg from "../../Image/logoImg.png";
+import Footer from "../Navbar/Navbar";
+// import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
   state = {

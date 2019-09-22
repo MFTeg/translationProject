@@ -1,57 +1,62 @@
 import React from "react";
-import { link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
-import LogoImg from "../../Image/logoImg.png";
+// import LogoImg from "../../Image/logoImg.png";
 
 function Navbar() {
   return (
     <nav id="navbar" role="navigation">
       <div className="nav-wrapper container">
-        <a href={"/"}>
-          <img className="circle" src={LogoImg} />
-        </a>
-        <a id="logo-container" href={"/"} class="brand-logo">
+        <Link to="/">
+          {/* <img src="./image/cute-cat.jpeg" alt="Placeholder" /> */}
+          <img className="circle" src="LogoImg" alt="circleLogo" />
+        </Link>
+
+        <Link to="/" id="logo-container" class="brand-logo">
+          {" "}
           Translation Station
-        </a>
+        </Link>
+
         <ul className="right hide-on-med-and-down">
           <li className="button">
-            <a
-              href={"/Signup"}
+            <Link
+              to="/Signup"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
+              {" "}
               Sign Up
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href={"/Signin"}
+            <Link
+              to="/Signin"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
-              Sign In{" "}
-            </a>{" "}
+              Sign In
+            </Link>
           </li>
           <li>
-            <a
-              href={"/Message"}
+            <Link
+              to="/Message"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
               Message
-            </a>
+            </Link>
           </li>
         </ul>
 
         <ul id="nav-mobile" class="sidenav">
           <li>
-            <a href="#">Navbar Link</a>
+            <Link to="/">Navbar Link</Link>
           </li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-          <i class="material-icons">menu</i>
-        </a>
+        <Link to="/" data-target="nav-mobile" class="sidenav-trigger">
+          <i className="material-icons">menu</i>
+        </Link>
       </div>
     </nav>
   );
