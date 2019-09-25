@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
-
+import io from "socket.io-client";
+import Navbar from "../Navbar/Navbar";
+import "../Message/Message.css";
+let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
   state = {
     msgContent: "",
@@ -10,6 +13,16 @@ class Message extends React.Component {
     receiver: "",
     receiverEmail: ""
   };
+
+  componentDidMount() {
+    socket.on("chat", function(data) {
+      console.log(data);
+      let message = document.getElementById("output").innerHTML;
+      message +=
+        "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
+      document.getElementById("output").innerHTML = message;
+    });
+  }
 
   messageInfo = event => {
     console.log(event.target.value);
@@ -27,7 +40,14 @@ class Message extends React.Component {
     console.log(this.state);
     let data = this.state;
     axios.post("/send", data).then(response => {
+      console.log("Sending");
+      console.log(response);
       console.log(response.data);
+      socket.emit("chat", {
+        senderId: data.senderId,
+        message: data.msgContent,
+        handle: data.receiverEmail
+      });
     });
   };
 
@@ -48,6 +68,7 @@ class Message extends React.Component {
   render() {
     return (
       <div>
+        <Navbar />
         <br />
         <br />
         <label htmlFor="msgContent">Message</label>
@@ -74,6 +95,11 @@ class Message extends React.Component {
         <button id="buttonMessage" onClick={() => this.inputMessage()}>
           Input Message
         </button>
+
+        <div id="chat-window">
+          <div id="output"></div>
+          <div id="feedback"></div>
+        </div>
       </div>
     );
   }
