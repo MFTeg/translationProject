@@ -1,11 +1,11 @@
 #containerSmall {
-    background-color: #bbd5f3;
-    height: 700px;
-    margin-left: 0px;
-  }
-  
-  #containerBig {
-    background-color: #ffffff;
-    height: 700px;
-    margin-right: 0px;
-  }
+  background-color: #bbd5f3;
+  height: 700px;
+  margin-left: 0px;
+}
+
+#containerBig {
+  background-color: #ffffff;
+  height: 700px;
+  margin-right: 0px;
+}
