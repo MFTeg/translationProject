@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./Navbar/index";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
+import Vision from "./VisionStatement/Vision";
 // import LogoImg from "../components/Image/logoImg.png";
 // import basketOfKittens from "../image/basket-of-kittens.jpg";
 
@@ -11,6 +12,7 @@ class Search extends Component {
       <div>
         <Navbar />
         <Header />
+        <Vision/>
         <Footer />
         {/* <img src="./image/cute-cat.jpeg" alt="Placeholder" /> */}
       </div>

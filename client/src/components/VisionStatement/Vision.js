@@ -1,6 +1,6 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import "../VisionStatment/Vision.css";
+import "../VisionStatement/Vision.css";
 
 // import WorldImg from "../../Image/WorldImg.png";
 
