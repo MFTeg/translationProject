@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import "./Message.css";
+import Navbar from "../Navbar/Navbar";
+import "../Message/Message.css";
 let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
   state = {
@@ -67,6 +68,7 @@ class Message extends React.Component {
   render() {
     return (
       <div>
+        <Navbar />
         <br />
         <br />
         <label htmlFor="msgContent">Message</label>
