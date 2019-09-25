@@ -12,7 +12,7 @@ function Navbar() {
           <img className="circle" src={LogoImg} />
         </a>
         <div id="logo-container" class="brand-logo">
-          Logo
+          Translation Station
         </div>
         <ul class="right hide-on-med-and-down">
           <li>
@@ -21,7 +21,7 @@ function Navbar() {
           <li>
             <Link to="/Signin"
               id="download-button"
-              class="btn-large waves-effect waves-light blue lighten-1">
+              className="btn-large waves-effect waves-light blue lighten-1">
               Sign In
             </Link>
           </li>

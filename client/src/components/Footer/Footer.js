@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "../Header/Header.css";
 import "../Footer/Footer.css";
 // import WorldImg from "../../Image/WorldImg.png";
@@ -18,7 +18,7 @@ function Footer() {
             <ul>
               <li>
                 <a classname="blue-text" href="#!">
-                  COMING SOON: New Features
+                  Blog Entry 001: New Features and fixes on the way
                 </a>
               </li>
               <li>
