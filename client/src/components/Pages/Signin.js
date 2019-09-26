@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Signin/Signin.css";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Navbar/Navbar";
-// import LogoImg from "../../Image/logoImg.png";
+// import Navbar from "../Navbar/Navbar";
+// import Footer from "../Navbar/Navbar";
+import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
   state = {
@@ -33,20 +34,36 @@ class Signin extends React.Component {
   render() {
     return (
       <div className="row">
-        <Navbar />
-        <div className="col s12 m5 l3" id="containerSmall">
+        {/* <Navbar /> */}
+        <div className="col s12 m5" id="containerSmall">
           <div className="nav-wrapper container">
-            {/* <a href="/" className="brand-logo">
-              <img className="circle" src={LogoImg} />
-            </a> */}
+            <a href="/" className="brand-logo">
+              <img
+                className="circle"
+                id="imgLogoId"
+                alt="imgLogo"
+                src={LogoImg}
+              />
+              <div className="message">
+                <h4>Sign In or Create an Account</h4>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div className="col s12 m7 l9" id="containerBig">
+        <div className="col s12 m7" id="containerBig">
           <div className="nav-wrapper container">
-            {/* <a href="#"><img class="circles" src=""></a>
-             */}
-            {/* <div className="col s12"> */}
+            <div className="logoBigContainer">
+              <Link to="/">
+                <img className="circle" src={LogoImg} alt="circleLogo" />
+              </Link>
+            </div>
+            <div className="messageBigContainer">
+              <Link to="/signin" id="bigContainerMessage" class="brand-logo">
+                {" "}
+                <h4>Sign In or Create an Account</h4>
+              </Link>
+            </div>
             <label htmlFor="email">Email</label>
             <input
               type="text"
@@ -62,7 +79,9 @@ class Signin extends React.Component {
               onChange={event => this.signInInfo(event)}
             />
             <button
-              // className="col s4"
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
               id="buttonSignIn"
               onClick={() => this.signIn()}
             >
@@ -70,7 +89,7 @@ class Signin extends React.Component {
             </button>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
