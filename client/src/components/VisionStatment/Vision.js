@@ -26,7 +26,40 @@ function Vision() {
             one place.
           </strong>
         </p>
+        <div className="slider">
+  <ul className="slides">
+    <li>
+      <img src="image/diverse-friends-students-shoot_53876-47012.jpg" /> 
+      <div className="caption center-align">
+        <h3> <i className="material-icons">people_outline</i> </h3>
+        <h5 className="light grey-text text-lighten-3"> 
+          <div className="center-align">
+            It's easy to get started! Simply sign up, invite others to join you and begin chatting. 
+          </div></h5>
       </div>
+    </li>
+    <li>
+      <img src="image/multicultural-marketing-audiences.jpg" /> 
+      <div className="caption center-align">
+        <h3>   <i className="material-icons">query_builder</i> </h3>
+        <h5 className="light grey-text text-lighten-3">
+          <div className="center-align">
+            Easier scheduling with a timezone clock as a fun feature! With world time availble, never worry about inconveniencing your chat partner! 
+          </div>
+        </h5>
+      </div>
+    </li>
+    <li>
+      <img src="image/compormiso-digital.jpg" /> 
+      <div className="caption center-align">
+        <h3><i className="material-icons">public</i></h3>
+        <h5 className="light grey-text text-lighten-3">This is a public app that allows you to chat directly across the world with some of the worlds most popular languages!
+        </h5>
+      </div>
+    </li>
+  </ul>
+</div>
+
     </div>
     // </div>
     // </div>
