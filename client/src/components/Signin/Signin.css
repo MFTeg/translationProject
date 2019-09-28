@@ -2,10 +2,111 @@
   background-color: #bbd5f3;
   height: 700px;
   margin-left: 0px;
+  position: fixed;
 }
 
 #containerBig {
   background-color: #ffffff;
   height: 700px;
   margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  float: right;
+}
+
+#imgLogoBig,
+#imgLogoSmall {
+  margin-top: 50px;
+}
+h4 {
+  font-weight: 500;
+  color: #000000;
+}
+
+.containerBigMessage {
+  margin-bottom: 30px;
+}
+.containerSmallMessage {
+  margin: auto;
+}
+
+/* @media screen and (max-width: 1700px) {
+  .containerBigMessage {
+    display: none !important;
+  }
+  #imgLogoBig {
+    display: none !important;
+  }
+} */
+
+#containerSmall {
+  height: 900px;
+}
+
+#containerBig {
+  height: 900px;
+}
+
+.containerSmallMessage {
+  margin-top: 250px;
+  text-align: center;
+}
+
+.containerSignin {
+  margin-top: 100px;
+}
+
+#buttonSignIn {
+  background-color: #4682b4;
+  border-radius: 8px;
+}
+#buttonSignup {
+  border-radius: 8px;
+  background-color: #bbdefb;
+  color: #000000;
+  margin-left: 130px;
+}
+
+.divider {
+  border: 0;
+  height: 60px;
+  background: #4682b4;
+  background-image: linear-gradient(to right, #ccc, #4682b4, #ccc);
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
+
+.aDivider {
+  text-align: center;
+  margin: auto;
+}
+
+.information {
+  margin-left: 25%;
+  margin-right: 25%;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 1700px) {
+  .containerBigMessage {
+    display: none;
+  }
+  #imgLogoBig {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #containerSmall {
+    display: none !important;
+  }
+  #containerBig {
+    width: 100%;
+  }
+  .containerBigMessage {
+    display: block;
+  }
+  #imgLogoBig {
+    display: block;
+  }
 }

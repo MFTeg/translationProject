@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import "../Signin/Signin.css";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+// import Navbar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
 import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
@@ -25,52 +25,110 @@ class Signin extends React.Component {
     axios.post("/signin", data).then(response => {
       console.log(response.data);
       //  Returns the user id, which can then be stored in localStorage
-      localStorage.clear();
-      localStorage.setItem("_id", response.data);
+      if (response.data.status === 200) {
+        localStorage.clear();
+        localStorage.setItem("_id", response.data.id);
+        window.location.href = "/message";
+      }
+      console.log(response.data.message);
+      document.getElementById("signInStatus").innerText = response.data.message;
     });
   };
 
   render() {
     return (
       <div className="row">
-        <Navbar />
-        <div className="col s12 m5 l3" id="containerSmall">
+        {/* <Navbar /> */}
+        <div className="col s12 m5" id="containerSmall">
           <div className="nav-wrapper container">
-            {/* <a href="/" className="brand-logo">
-              <img className="circle" src={LogoImg} />
-            </a> */}
+            <a href="/" className="brand-logo">
+              <img
+                className="circle"
+                id="imgLogoSmall"
+                alt="logoImg"
+                src={LogoImg}
+              />
+            </a>
+          </div>
+          <div className="containerSmallMessage">
+            <h4>Sign In or Create An Account</h4>
           </div>
         </div>
 
-        <div className="col s12 m7 l9" id="containerBig">
+        <div className="col s12 m7" id="containerBig">
           <div className="nav-wrapper container">
-            {/* <a href="#"><img class="circles" src=""></a>
-             */}
-            {/* <div className="col s12"> */}
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              // className="col s9"
-              onChange={event => this.signInInfo(event)}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              // className="col s9"
-              onChange={event => this.signInInfo(event)}
-            />
+            <div>
+              <a href={"/"}>
+                <img
+                  className="circle"
+                  id="imgLogoBig"
+                  alt="logoImg"
+                  src={LogoImg}
+                />
+              </a>
+            </div>
+
+            <div className="containerBigMessage">
+              <a id="logo-container" href={"/"} className="brand-logo">
+                <h4>Sign In or Create An Account</h4>
+              </a>
+            </div>
+            <div className="containerSignin">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                onChange={event => this.signInInfo(event)}
+              />
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                onChange={event => this.signInInfo(event)}
+              />
+
+              <p id="signInStatus"></p>
+              <button
+                id="buttonSignIn"
+                class="btn waves-effect waves-light"
+                type="submit"
+                name="action"
+                onClick={() => this.signIn()}
+              >
+                Sign In
+              </button>
+              <a href={"/signup"} class="right">
+                Create account
+              </a>
+            </div>
+          </div>
+
+          <div className="divider">
+            {" "}
+            <a href={"/signup"} className="aDivider">
+              Translation Station &reg;
+            </a>
+          </div>
+
+          <div className="information">
             <button
-              // className="col s4"
-              id="buttonSignIn"
-              onClick={() => this.signIn()}
+              id="buttonSignup"
+              className="btn waves-effect waves-light center"
+              type="submit"
             >
-              Sign In
+              <a href={"/signup"} class="right">
+                Join Now
+              </a>
             </button>
+
+            <p>
+              Create Account Translation Station &reg; and Connect to Friends
+              and Loved Ones WithOut any Language Barier
+            </p>
           </div>
         </div>
-        <Footer />
+
+        {/* <Footer /> */}
       </div>
     );
   }
