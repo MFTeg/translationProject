@@ -16,13 +16,18 @@ const Message = require("./models/message");
 
 mongoose
   .connect(
-    "mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb://" +
+      process.env.MONGO_USERNAME +
+      ":" +
+      process.env.MONGO_PASSWORD +
+      "@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
     { useNewUrlParser: true }
   )
   .then(() => {
-    console.log("Database connected").catch(error => {
-      console.log(error);
-    });
+    console.log("Database connected");
+  })
+  .catch(error => {
+    console.log(error);
   });
 
 app.use(
