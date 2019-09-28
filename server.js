@@ -16,13 +16,18 @@ const Message = require("./models/message");
 
 mongoose
   .connect(
-    "mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb://" +
+      process.env.MONGO_USERNAME +
+      ":" +
+      process.env.MONGO_PASSWORD +
+      "@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
     { useNewUrlParser: true }
   )
   .then(() => {
-    console.log("Database connected").catch(error => {
-      console.log(error);
-    });
+    console.log("Database connected");
+  })
+  .catch(error => {
+    console.log(error);
   });
 
 app.use(
@@ -60,13 +65,31 @@ app.post("/signin", function(req, res) {
   User.findOne(req.body)
     .then(function(dbUser) {
       console.log("Signed in");
+      console.log(dbUser);
       // If saved successfully, send the the new User document to the client
-      res.json(dbUser._id);
+      if (dbUser) {
+        res.json({
+          id: dbUser._id,
+          message: "Successfully signed in",
+          status: 200
+        });
+      } else {
+        res.json({
+          message: "Invalid email or password",
+          status: 403
+        });
+      }
     })
     .catch(function(err) {
       // If an error occurs, send the error to the client
       res.json(err);
     });
+});
+
+app.get("/user/:id", function(req, res) {
+  console.log(req.params);
+  let id = req.params.id;
+  User.findById(id).then(data => res.json(data));
 });
 
 app.post("/users", function(req, res) {

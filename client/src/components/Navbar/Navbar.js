@@ -1,22 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
 import LogoImg from "../../Image/logoImg.png";
 
 function Navbar() {
   return (
-    <nav id="navbar" role="navigation">
+    <nav className="navBarClass" id="navbar" role="navigation">
       <div className="nav-wrapper container">
-        <Link to="/">
-          <img className="circle" src={LogoImg} alt="circleLogo" />
-        </Link>
-
-        <Link to="/" id="logo-container" class="brand-logo">
-          {" "}
+        <a href={"/"}>
+          <img className="circle" alt="logoImg" src={LogoImg} />
+        </a>
+        <a id="logo-container" href={"/"} className="brand-logo">
           Translation Station
-        </Link>
-
+        </a>
         <ul className="right hide-on-med-and-down">
           <li className="button">
             <Link
@@ -48,14 +45,14 @@ function Navbar() {
           </li>
         </ul>
 
-        <ul id="nav-mobile" class="sidenav">
+        <ul id="nav-mobile" className="sidenav">
           <li>
-            <Link to="/">Navbar Link</Link>
+            <a href={"/"}>Navbar Link</a>
           </li>
         </ul>
-        <Link to="/" data-target="nav-mobile" class="sidenav-trigger">
+        <a href={"/"} data-target="nav-mobile" className="sidenav-trigger">
           <i className="material-icons">menu</i>
-        </Link>
+        </a>
       </div>
     </nav>
   );
