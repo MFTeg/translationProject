@@ -16,31 +16,32 @@ function Navbar() {
         </a>
         <ul className="right hide-on-med-and-down">
           <li className="button">
-            <a
-              href={"/Signup"}
+            <Link
+              to="/Signup"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
+              {" "}
               Sign Up
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href={"/Signin"}
+            <Link
+              to="/Signin"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
-              Sign In{" "}
-            </a>{" "}
+              Sign In
+            </Link>
           </li>
           <li>
-            <a
-              href={"/Message"}
+            <Link
+              to="/Message"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
               Message
-            </a>
+            </Link>
           </li>
         </ul>
 
