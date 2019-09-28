@@ -15,18 +15,18 @@ class Message extends React.Component {
   };
 
   
-  // componentDidMount() {
-  //   socket.on("chat", function(data) {
-  //     console.log("MessageJS, on Chat")
-  //     console.log(data);
-  //     console.log("MessageJS, on Chat")
+  componentDidMount() {
+    socket.on("chat", function(data) {
+      console.log("MessageJS, on Chat")
+      console.log(data);
+      console.log("MessageJS, on Chat")
 
-  //     let message = document.getElementById("output").innerHTML;
-  //     message +=
-  //       "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
-  //     document.getElementById("output").innerHTML = message;
-  //   });
-  // }
+      let message = document.getElementById("output").innerHTML;
+      message +=
+        "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
+      document.getElementById("output").innerHTML = message;
+    });
+  }
 
   messageInfo = event => {
     // console.log(event.target.value);
@@ -42,8 +42,8 @@ class Message extends React.Component {
   };
 
   inputMessage = () => {
-    console.log(this.state);
-    console.log(this.state.receiverEmail)
+    // console.log(this.state);
+    // console.log(this.state.receiverEmail)
   
     //find recievers full info
       // this.getReceivers(this.state.receiverEmail);
