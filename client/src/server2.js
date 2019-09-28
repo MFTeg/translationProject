@@ -22,11 +22,16 @@ io.on('connection', (socket) => {
 
     console.log('made socket connection', socket.id);
 
+    socket.on('signUp', function(data){
+        // console.log(data)
+       
+    });
+
     // Handle chat event
     socket.on('chat', function(data){
-        console.log(data.handle)
-        console.log(data.message)
-        console.log(data.language)
+        // console.log(data.handle)
+        // console.log(data.message)
+        // console.log(data.language)
    
         var lang;
 
@@ -40,7 +45,7 @@ io.on('connection', (socket) => {
             lang = 'es'
         }
         translate.translate(data.messageT, { to: lang }, function(err, res) {
-        console.log(res.text);
+        // console.log(res.text);
         data.messageT = res.text
         io.sockets.emit('chat', data);
         });
@@ -54,7 +59,7 @@ io.on('connection', (socket) => {
     io.sockets.on('connection', function(socket) {
         socket.on('create', function(room) {
           socket.join(newRoom);
-          console.log(newroom)
+        //   console.log(newroom)
         });
       });
 

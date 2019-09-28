@@ -14,16 +14,6 @@ const Message = require("./models/message");
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
 
-mongoose
-  .connect(
-    "mongodb+srv://jessica:translation@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("Database connected").catch(error => {
-      console.log(error);
-    });
-  });
 
 app.use(
   bodyParser.urlencoded({
@@ -187,14 +177,7 @@ mongoose
       ":" +
       process.env.MONGO_PASSWORD +
       "@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
-    // "mongodb+srv://Mesay:Mesi463946@cluster0-updmb.mongodb.net/test?retryWrites=true&w=majority",
-    // process.env.MONGODB_URI ||
-    //   "mongodb://Mesay:Mesi463946@cluster0-shard-00-00-vfzwn.mongodb.net:27017,cluster0-shard-00-01-vfzwn.mongodb.net:27017,cluster0-shard-00-02-vfzwn.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
-    // "mongodb+srv://Mesay:Mesi463946@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority",
-    // mongodb+srv:Mesay:<>@cluster0-vfzwn.mongodb.net/test?retryWrites=true&w=majority
-    // "mongodb://Mesay:Mesi463946@cluster0-updmb.mongodb.net/test?retryWrites=true&w=majority",
-    // "mongodb://Mesay:Mesi463946@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
-    { useNewUrlParser: true }
+    { useNewUrlParser: true,  useUnifiedTopology: true}
   )
 
   .then(() => {

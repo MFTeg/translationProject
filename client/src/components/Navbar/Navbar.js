@@ -4,6 +4,8 @@ import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
 import LogoImg from "../../Image/logoImg.png";
 
+
+
 function Navbar() {
   return (
     <nav id="navbar" role="navigation">
@@ -12,7 +14,7 @@ function Navbar() {
           <img className="circle" src={LogoImg} alt="circleLogo" />
         </Link>
 
-        <Link to="/" id="logo-container" class="brand-logo">
+        <Link to="/" id="logo-container" className="brand-logo">
           {" "}
           Translation Station
         </Link>
@@ -38,22 +40,22 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link
+            {/* <Link
               to="/Message"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
               Message
-            </Link>
+            </Link> */}
           </li>
         </ul>
-
-        <ul id="nav-mobile" class="sidenav">
+        <a href="chatroom.html">Redirect to Html page</a>
+        <ul id="nav-mobile" className="sidenav">
           <li>
             <Link to="/">Navbar Link</Link>
           </li>
         </ul>
-        <Link to="/" data-target="nav-mobile" class="sidenav-trigger">
+        <Link to="/" data-target="nav-mobile" className="sidenav-trigger">
           <i className="material-icons">menu</i>
         </Link>
       </div>

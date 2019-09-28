@@ -5,10 +5,7 @@ import Message from "./components/Pages/Message";
 import Home from "./components/Pages/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-// import Message from "./Message";
 
-// import SignIn from './Signin'
-// import SignUp from './Signup'
 function App() {
   return (
     <Router>

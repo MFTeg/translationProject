@@ -17,7 +17,7 @@ function Footer() {
             <h5 className="white-text">Blog</h5>
             <ul>
               <li>
-                <a classname="white-text" href="#!">
+                <a className="white-text" href="#!">
                   COMING SOON: New Features
                 </a>
               </li>

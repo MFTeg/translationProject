@@ -7,63 +7,73 @@ let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
   state = {
     msgContent: "",
-    language: "",
-    senderId: localStorage.getItem("_id"),
-    reciverId: "",
-    receiver: "",
+    // language: "",
+    // senderId: localStorage.getItem("_id"),
+    // reciverId: "",
+    // receiver: "",
     receiverEmail: ""
   };
 
-  componentDidMount() {
-    socket.on("chat", function(data) {
-      console.log(data);
-      let message = document.getElementById("output").innerHTML;
-      message +=
-        "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
-      document.getElementById("output").innerHTML = message;
-    });
-  }
+  
+  // componentDidMount() {
+  //   socket.on("chat", function(data) {
+  //     console.log("MessageJS, on Chat")
+  //     console.log(data);
+  //     console.log("MessageJS, on Chat")
+
+  //     let message = document.getElementById("output").innerHTML;
+  //     message +=
+  //       "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
+  //     document.getElementById("output").innerHTML = message;
+  //   });
+  // }
 
   messageInfo = event => {
-    console.log(event.target.value);
-    console.log(event.target.id);
+    // console.log(event.target.value);
+    // console.log(event.target.id);
     this.setState({
       [event.target.id]: event.target.value
     });
 
-    if (event.target.id === "receiverList") {
-      this.getReceivers(event.target.value);
-    }
+    // if (event.target.id === "receiverEmail") {
+    //   this.getReceivers(event.target.value);
+    //   // console.log(event.target.value)
+    // }
   };
 
   inputMessage = () => {
     console.log(this.state);
-    let data = this.state;
-    axios.post("/send", data).then(response => {
-      console.log("Sending");
-      console.log(response);
-      console.log(response.data);
+    console.log(this.state.receiverEmail)
+  
+    //find recievers full info
+      // this.getReceivers(this.state.receiverEmail);
+
+    // let data = this.state;
+    // axios.post("/send", data).then(response => {
+    //   console.log("Sending");
+    //   console.log(response);
+    //   console.log(response.data);
       socket.emit("chat", {
-        senderId: data.senderId,
-        message: data.msgContent,
-        handle: data.receiverEmail
+    
+        message: this.state.msgContent,
+        handle: this.state.receiverEmail
       });
-    });
+  //   // });
   };
 
-  getReceivers = query => {
-    //  Get a list of message receivers
-    axios
-      .post("/users", {
-        query: query
-      })
-      .then(response => {
-        console.log(response.data);
-        this.setState({
-          receivers: response.data
-        });
-      });
-  };
+  // getReceivers = query => {
+  //   //  Get a list of message receivers
+  //   axios
+  //     .post("/users", {
+  //       query: query
+  //     })
+  //     .then(response => {
+  //       console.log(response.data);
+  //       this.setState({
+  //         receivers: response.data
+  //       });
+  //     });
+  // };
 
   render() {
     return (
@@ -79,11 +89,11 @@ class Message extends React.Component {
         />
 
         <label htmlFor="language">Language</label>
-        <input
+        {/* <input
           type="text"
           id="language"
           onChange={event => this.messageInfo(event)}
-        />
+        /> */}
 
         <label htmlFor="receiver-search">Send to</label>
         <input

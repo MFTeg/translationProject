@@ -3,6 +3,7 @@ import axios from "axios";
 import "../Signin/Signin.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
 // import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
@@ -12,8 +13,8 @@ class Signin extends React.Component {
   };
 
   signInInfo = event => {
-    console.log(event.target.value);
-    console.log(event.target.id);
+    // console.log(event.target.value);
+    // console.log(event.target.id);
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -24,11 +25,16 @@ class Signin extends React.Component {
     let data = this.state;
     axios.post("/signin", data).then(response => {
       console.log(response.data);
+      // axios.get("/data", data).then(response => {
+      //   console.log(response.data);
+      // });
       //  Returns the user id, which can then be stored in localStorage
       localStorage.clear();
       localStorage.setItem("_id", response.data);
     });
+  
   };
+
 
   render() {
     return (
@@ -44,9 +50,17 @@ class Signin extends React.Component {
 
         <div className="col s12 m7 l9" id="containerBig">
           <div className="nav-wrapper container">
-            {/* <a href="#"><img class="circles" src=""></a>
-             */}
-            {/* <div className="col s12"> */}
+            <div>
+
+
+            <label htmlFor="bob">bob</label>
+            <input
+              type="text"
+              id="bob"
+              // className="col s9"
+              onChange={event => this.signInInfo(event)}
+            />
+
             <label htmlFor="email">Email</label>
             <input
               type="text"
@@ -54,6 +68,10 @@ class Signin extends React.Component {
               // className="col s9"
               onChange={event => this.signInInfo(event)}
             />
+    
+   
+
+            
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -61,13 +79,17 @@ class Signin extends React.Component {
               // className="col s9"
               onChange={event => this.signInInfo(event)}
             />
-            <button
-              // className="col s4"
-              id="buttonSignIn"
+    
+    </div>
+            <Link
+              to="/Message"
+              id="buttonSignIp"
               onClick={() => this.signIn()}
+              className="btn-large waves-effect waves-light blue lighten-1"
             >
-              Sign In
-            </button>
+              Message
+            </Link>
+
           </div>
         </div>
         <Footer />
