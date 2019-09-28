@@ -19,12 +19,16 @@ class Message extends React.Component {
     socket.on("chat", function(data) {
       console.log("MessageJS, on Chat")
       console.log(data);
-      console.log("MessageJS, on Chat")
-
-      let message = document.getElementById("output").innerHTML;
-      message +=
-        "<p><strong>" + data.handle + ": </strong>" + data.message + "</p>";
-      document.getElementById("output").innerHTML = message;
+       var output = document.getElementById("output")
+     
+      output.innerHTML +=
+        "<p><strong>" +
+        data.handle +
+        ": </strong>" +
+        data.message +
+        "<br>" +
+        // data.messageT +
+        "<br></p>";
     });
   }
 

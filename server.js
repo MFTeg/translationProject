@@ -197,43 +197,34 @@ var io = socket(server);
 io.on("connection", socket => {
   console.log("made socket connection", socket.id);
 
+  socket.on("signIn", function(data) {
+    console.log("heres the signIndata")
+    console.log(data)
+  });
   // Handle chat event
   socket.on("chat", function(data) {
     console.log("Getting socket data");
     console.log(data);
+    console.log(data.handle)
+    let userLang;
+    var receiverEmail = data.handle
+//find the email of the reciepient in the database
+    User.findOne({email: receiverEmail}, function(err, user){
+      if(err){
+        console.log("houston we have a problem")
+        console.log(err)
+      } else {
+        console.log(user)
+        console.log(user.fullName)
+        console.log(user.language)
 
-    // // if (data.handle === "bob") {
-    // //   var lang = "ru";
-    // // } else {
-    // //   var lang = "es";
-    // // }
+      }
+    })   
 
-    // //  Search for data.handle in the User collection and return the preferred language of the user
-    // let userLang;
-    // User.findOne({
-    //   email: data.handle
-    // })
-    //   .then(user => {
-    //     userLang = user.language;
-    //     data.handle = user.fullName;
-
-    //     User.findById(data.senderId).then(dbUser => {
-    //       data.sender = dbUser.fullName;
-    //     });
-
-    //     translate.translate(data.message, { to: userLang }, function(err, res) {
-    //       console.log("Get message text");
-    //       console.log(res.text);
-    //       data.messageT = res.text;
-    //       io.sockets.emit("chat", data);
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });(
-    io.sockets.emit("chat", data)
+  
+     
+    // io.sockets.emit("chat", data)
   });
-
   // Handle typing event
   socket.on("typing", function(data) {
     socket.broadcast.emit("typing", data);
