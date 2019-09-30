@@ -99,10 +99,61 @@ class Message extends React.Component {
     return language;
   };
 
+  signOut = () => {
+    console.log("signout");
+    localStorage.clear();
+  };
+
   render() {
     return (
       <div>
-        <Navbar />
+        {localStorage.length === 0 ? (
+          <div>
+            Please Sign In <a href={"/"}>Here</a>
+          </div>
+        ) : (
+          <div>
+            <Navbar page="message" signOut={this.signOut} />
+
+            <br />
+            <br />
+            <label htmlFor="msgContent">Message</label>
+            <input
+              type="text"
+              id="msgContent"
+              value={this.state.msgContent}
+              onChange={event => this.messageInfo(event)}
+            />
+
+            <label htmlFor="language">Language</label>
+            <input
+              type="text"
+              id="language"
+              placeholder={
+                "Default: " + this.languagePreferenceFormat(this.state.language)
+              }
+              onChange={event => this.messageInfo(event)}
+            />
+
+            <label htmlFor="receiver-search">Send to</label>
+            <input
+              id="receiverEmail"
+              type="text"
+              onChange={event => this.messageInfo(event)}
+            />
+
+            <button id="buttonMessage" onClick={() => this.inputMessage()}>
+              Input Message
+            </button>
+
+            <div id="chat-window">
+              <div id="output"></div>
+              <div id="feedback"></div>
+            </div>
+          </div>
+        )}
+        {/* <Navbar page="message" signOut={this.signOut} />
+
         <br />
         <br />
         <label htmlFor="msgContent">Message</label>
@@ -138,6 +189,7 @@ class Message extends React.Component {
           <div id="output"></div>
           <div id="feedback"></div>
         </div>
+      </div> */}
       </div>
     );
   }

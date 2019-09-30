@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Signin/Signin.css";
 // import Navbar from "../Navbar/Navbar";
@@ -107,7 +107,7 @@ class Signin extends React.Component {
           <div className="divider">
             {" "}
             <a href={"/signup"} className="aDivider">
-              Translation Station &reg;
+              JustTranslation&reg;
             </a>
           </div>
 

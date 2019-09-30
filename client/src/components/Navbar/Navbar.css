@@ -8,9 +8,40 @@
   /* border: 3px solid #fff; */
 }
 #navbar {
+  color: #ffffff;
   background-color: #4682b4;
 }
+
+#sideNavMenu {
+  font-family: "Material Icons";
+  content: "\E5D2";
+  /* font-family: "Roboto", sans-serif;
+  font-weight: 500; */
+}
+
+.brand-logo {
+  font-family: "Charm", cursive;
+}
+
 #download-button,
 .button {
   background-color: #4682b4;
+}
+
+.sidenav {
+  width: 100%;
+  height: auto;
+  margin-top: 65px;
+  font-family: "Material Icons";
+  content: "\e5d2";
+  text-align: center;
+}
+
+@media screen and (min-width: 980px) {
+  .sidenav {
+    display: none !important;
+  }
+  /* #containerBig {
+    width: 100%;
+  } */
 }

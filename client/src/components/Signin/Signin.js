@@ -32,7 +32,7 @@ class Signin extends React.Component {
   render() {
     return (
       <div className="row">
-      <Navbar/>
+        <Navbar />
         <br />
         <br />
         <div className="col s12">
@@ -54,10 +54,13 @@ class Signin extends React.Component {
             //move button to bottom
             className="btn btn-primary"
             id="buttonSignIn"
-            onClick={() => this.signIn(
-              //Cant link to 3000/Chat becuase reroutes to 3001/Chat (not valid)
-              //after onclick confirm email and pw then direct to Chat
-            )}
+            onClick={() =>
+              this
+                .signIn
+                //Cant link to 3000/Chat becuase reroutes to 3001/Chat (not valid)
+                //after onclick confirm email and pw then direct to Chat
+                ()
+            }
           >
             Sign In
           </button>

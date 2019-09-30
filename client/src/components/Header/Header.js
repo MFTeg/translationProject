@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="section">
       <div className="row">
-        <div className="col s12 center">
+        <div className="col s12 center" id="containerHeader">
           <h3>
             <i className="mdi-content-send black-text">Connecting The World</i>
           </h3>
