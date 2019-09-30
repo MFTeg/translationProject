@@ -1,7 +1,6 @@
-ody {
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    "sans-serif", "Nunito";
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Charm", cursive;
 }
 
 h2 {

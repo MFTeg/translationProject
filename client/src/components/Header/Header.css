@@ -2,4 +2,14 @@
   background-image: url("../../Image/WorldImg.jpg");
   margin: 20px 20px 20px 20px;
   height: 400px;
+  font-family: "Roboto", sans-serif;
+}
+
+@media screen and (min-width: 980px) {
+  /* .sidenav {
+    display: none !important;
+  } */
+  .section {
+    margin-top: 125px;
+  }
 }

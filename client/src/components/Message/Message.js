@@ -3,7 +3,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
-let socket = io(`http://localhost:3001`);
+let socket = io();
 class Message extends React.Component {
   state = {
     msgContent: "",
@@ -22,17 +22,7 @@ class Message extends React.Component {
         "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
       document.getElementById("output").innerHTML = message;
     });
-    this.getUserInfo();
   }
-
-  getUserInfo = () => {
-    axios.get("/user/" + localStorage._id).then(response => {
-      console.log(response);
-      this.setState({
-        language: response.data.language
-      });
-    });
-  };
 
   messageInfo = event => {
     console.log(event.target.value);
@@ -58,9 +48,6 @@ class Message extends React.Component {
         message: data.msgContent,
         handle: data.receiverEmail
       });
-      this.setState({
-        msgContent: ""
-      });
     });
   };
 
@@ -78,89 +65,16 @@ class Message extends React.Component {
       });
   };
 
-  languagePreferenceFormat = value => {
-    let language;
-    switch (value) {
-      case "en":
-        language = "English";
-        break;
-      case "es":
-        language = "Spanish";
-        break;
-      case "it":
-        language = "Italian";
-        break;
-      case "ru":
-        language = "Russian";
-        break;
-      default:
-        language = "English";
-    }
-    return language;
-  };
-
-  signOut = () => {
-    console.log("signout");
-    localStorage.clear();
-  };
-
   render() {
     return (
       <div>
-        {localStorage.length === 0 ? (
-          <div>
-            Please Sign In <a href={"/"}>Here</a>
-          </div>
-        ) : (
-          <div>
-            <Navbar page="message" signOut={this.signOut} />
-
-            <br />
-            <br />
-            <label htmlFor="msgContent">Message</label>
-            <input
-              type="text"
-              id="msgContent"
-              value={this.state.msgContent}
-              onChange={event => this.messageInfo(event)}
-            />
-
-            <label htmlFor="language">Language</label>
-            <input
-              type="text"
-              id="language"
-              placeholder={
-                "Default: " + this.languagePreferenceFormat(this.state.language)
-              }
-              onChange={event => this.messageInfo(event)}
-            />
-
-            <label htmlFor="receiver-search">Send to</label>
-            <input
-              id="receiverEmail"
-              type="text"
-              onChange={event => this.messageInfo(event)}
-            />
-
-            <button id="buttonMessage" onClick={() => this.inputMessage()}>
-              Input Message
-            </button>
-
-            <div id="chat-window">
-              <div id="output"></div>
-              <div id="feedback"></div>
-            </div>
-          </div>
-        )}
-        {/* <Navbar page="message" signOut={this.signOut} />
-
+        <Navbar />
         <br />
         <br />
         <label htmlFor="msgContent">Message</label>
         <input
           type="text"
           id="msgContent"
-          value={this.state.msgContent}
           onChange={event => this.messageInfo(event)}
         />
 
@@ -168,9 +82,6 @@ class Message extends React.Component {
         <input
           type="text"
           id="language"
-          placeholder={
-            "Default: " + this.languagePreferenceFormat(this.state.language)
-          }
           onChange={event => this.messageInfo(event)}
         />
 
@@ -189,7 +100,6 @@ class Message extends React.Component {
           <div id="output"></div>
           <div id="feedback"></div>
         </div>
-      </div> */}
       </div>
     );
   }
