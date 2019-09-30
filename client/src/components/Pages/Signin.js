@@ -1,9 +1,13 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 =======
 // import { Link } from "react-router-dom";
 >>>>>>> c6f284f47112675a4cd1c0665908aadb3a099e0a
+=======
+import { Link } from "react-router-dom";
+>>>>>>> b2d235e49544585648a61e3eeb918b765a4b214c
 import axios from "axios";
 import "../Signin/Signin.css";
 // import Navbar from "../Navbar/Navbar";
