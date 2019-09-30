@@ -88,14 +88,17 @@ function Navbar(props) {
           </li>
 
           <li className="divider">
-            {" "}
             <a href={"/signup"}>Sign Up</a>
           </li>
         </ul>
 
-        <a href={"/"} data-target="nav-mobile" className="sidenav-trigger">
+        <a
+          className="sidenavClass"
+          href={"/"}
+          data-target="nav-mobile"
+          className="sidenav-trigger"
+        >
           <i className="material-icons" id="sideNavMenu">
-            {" "}
             &#xE5D2;
           </i>
         </a>
