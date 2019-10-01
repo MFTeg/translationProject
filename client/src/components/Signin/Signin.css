@@ -111,71 +111,51 @@ h4 {
     display: block;
   }
 
-#imgLogoId,
-.logoBigContainer {
-  margin-left: 10px;
-  margin-top: 50px;
-}
+  #imgLogoId,
+  .logoBigContainer {
+    margin-left: 10px;
+    margin-top: 50px;
+  }
 
-.message {
-  color: #000000;
-  text-align: center;
-  margin-top: 250px;
-  font-weight: 700 !important;
-}
-.messageBigContainer {
-  color: #000000;
-  text-align: center;
-  margin-top: 25px;
-  margin-bottom: 50px;
-  font-weight: 700 !important;
-}
-#bigContainerMessage {
-  font-weight: 500 !important;
-  color: #000000;
-}
-#buttonSignIn {
-  background-color: #4682b4;
-  color: #ffffff;
-  margin-top: 10px;
-  border-radius: 8px;
-}
+  .message {
+    color: #000000;
+    text-align: center;
+    margin-top: 250px;
+    font-weight: 700;
+    font-family: "Charm", cursive;
+  }
+  .messageBigContainer {
+    color: #000000;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    font-family: "Charm", cursive;
+  }
 
-@media screen and (max-width: 980px) {
-  #containerSmall {
-    display: none !important;
+  .containerSmallMessage {
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
   }
-  #containerBig {
-    width: 100%;
+
+  #bigContainerMessage {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #000000;
+  }
+  #buttonSignIn {
+    background-color: #4682b4;
+    color: #ffffff;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  @media screen and (max-width: 980px) {
+    #containerSmall {
+      display: none !important;
+    }
+    #containerBig {
+      width: 100%;
+    }
   }
 }
-
-/* @media screen and (max-width: 980px) {
-  .brand-logo {
-    width: 100%;
-    margin-left: 40px;
-  }
-  #nav-mobile {
-    float: right;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .brand-logo {
-    width: 100%;
-    margin-left: 40px;
-  }
-  #nav-mobile {
-    float: right;
-  }
-}
-
-@media screen and (max-width: 640) {
-  .brand-logo {
-    width: 100%;
-    margin-left: 40px;
-  }
-  #nav-mobile {
-    float: right; 
-  }
-}*/

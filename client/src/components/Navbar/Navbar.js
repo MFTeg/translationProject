@@ -57,43 +57,17 @@ function Navbar(props) {
         <a id="logo-container" href={"/"} className="brand-logo">
           JustTranslator
         </a>
-        <ul className="right hide-on-med-and-down">
-          <li className="button">
-            <Link
-              to="/Signup"
-              id="download-button"
-              className="btn-large waves-effect waves-light blue lighten-1"
-            >
-              {" "}
-              Sign Up
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Signin"
-              id="download-button"
-              className="btn-large waves-effect waves-light blue lighten-1"
-            >
-              Sign In
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/Message"
-              id="download-button"
-              className="btn-large waves-effect waves-light blue lighten-1"
-            >
-              Message
-            </Link>
-          </li>
 
+        {button}
+
+        {/* <ul>
           <li className="divider">
             <a href={"/signup"}>Sign Up</a>
           </li>
-        </ul>
+        </ul> */}
 
         <a
-          className="sidenavClass"
+          // className="sidenavClass"
           href={"/"}
           data-target="nav-mobile"
           className="sidenav-trigger"

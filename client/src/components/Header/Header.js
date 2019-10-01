@@ -9,7 +9,9 @@ function Header() {
       <div className="row">
         <div className="col s12 center" id="containerHeader">
           <h3>
-            <i className="mdi-content-send black-text">Connecting The World</i>
+            <i className="mdi-content-send black-text" id="headerMessage">
+              Connecting The World
+            </i>
           </h3>
           <h5>With Out Language Barriers</h5>
         </div>
