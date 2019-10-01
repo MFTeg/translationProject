@@ -65,7 +65,21 @@ function Navbar(props) {
             <a href={"/signup"}>Sign Up</a>
           </li>
         </ul> */}
-
+        <ul id="nav-mobile" class="sidenav">
+          <li class="divider">
+            <li>
+              <a href={"/"}>HOME</a>
+            </li>
+          </li>
+          <li class="divider">
+            {" "}
+            <a href={"/signin"}>SIGN IN</a>
+          </li>
+          <li class="divider">
+            {" "}
+            <a href={"/signup"}>SIGN UP</a>
+          </li>
+        </ul>
         <a
           // className="sidenavClass"
           href={"/"}

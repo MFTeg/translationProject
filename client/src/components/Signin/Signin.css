@@ -150,12 +150,12 @@ h4 {
     border-radius: 8px;
   }
 
-  @media screen and (max-width: 980px) {
+  /* @media screen and (max-width: 980px) {
     #containerSmall {
       display: none !important;
     }
     #containerBig {
       width: 100%;
     }
-  }
+  } */
 }
