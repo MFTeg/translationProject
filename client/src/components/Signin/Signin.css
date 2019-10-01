@@ -26,7 +26,12 @@ h4 {
 
 .containerBigMessage {
   margin-bottom: 30px;
+  font-family: "Charm", cursive;
+  font-weight: 700;
+  font-style: italic;
+  margin-left: 100px;
 }
+
 .containerSmallMessage {
   margin: auto;
 }

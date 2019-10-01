@@ -67,7 +67,7 @@ class Signup extends React.Component {
             <a href="/" className="brand-logo">
               <img
                 className="circle"
-                id="imgLogoSmall"
+                id="imgLogoBig"
                 alt="logoImg"
                 src={LogoImg}
               />
