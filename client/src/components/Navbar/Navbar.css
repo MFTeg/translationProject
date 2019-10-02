@@ -10,6 +10,8 @@
 #navbar {
   color: #ffffff;
   background-color: #4682b4;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
 }
 
 #sideNavMenu {
@@ -21,6 +23,7 @@
 
 .brand-logo {
   font-family: "Charm", cursive;
+  font-weight: 700;
 }
 
 #download-button,
@@ -32,9 +35,10 @@
   width: 100%;
   height: auto;
   margin-top: 65px;
-  font-family: "Material Icons";
+  font-family: "Material Icons", "Roboto", sans-serif;
   content: "\e5d2";
   text-align: center;
+  font-weight: 700;
 }
 
 @media screen and (min-width: 980px) {

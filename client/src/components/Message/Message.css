@@ -1,6 +1,6 @@
-#chat-window {
+.chat-window {
   height: 400px;
-  overflow: auto;
+  /* overflow: auto; */
   /* background: #f9f9f9; */
   background: #bbd5f3;
 }
@@ -20,4 +20,80 @@
 
 #output strong {
   color: #575ed8;
+}
+
+.chatRoomNav {
+  width: 100%;
+  border: 0px;
+  float: left;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+#containerSmallMsg {
+  background-color: #bbd5f3;
+  height: 900px;
+  margin-left: 0px;
+  position: fixed;
+}
+
+#containerBigMsg {
+  background-color: #ffffff;
+  height: 900px;
+  margin: auto;
+  border: 0;
+  /* margin-right: 0px;
+  padding-left: 0px; */
+  padding-right: 0px;
+  float: right;
+  margin-right: 335px;
+}
+/* @media only screen and (min-width: 993px) {
+  .chatRoomNav {
+    width: 100%;
+  }
+} */
+
+.divider {
+  border: 0;
+  height: 60px;
+  background: #4682b4;
+  background-image: linear-gradient(to right, #ccc, #4682b4, #ccc);
+  margin-top: 100px;
+  /* margin-bottom: 40px; */
+}
+
+#howToUse {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1700px) {
+  .containerBigMessage {
+    display: none;
+  }
+  #imgLogoBig {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #containerSmallMsg {
+    display: none !important;
+  }
+  #containerBigMsg {
+    width: 100%;
+  }
+  /* .containerBigMessage {
+    display: block;
+  }
+  #imgLogoBig {
+    display: block;
+  } */
+}
+#containerSmallMsgThree {
+  background-color: #4682b4;
+  float: right;
+  margin-right: 0;
+  margin-top: 0;
 }

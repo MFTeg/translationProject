@@ -3,13 +3,19 @@
   margin: 20px 20px 20px 20px;
   height: 400px;
   font-family: "Roboto", sans-serif;
+  font-style: normal;
 }
 
-@media screen and (min-width: 980px) {
-  /* .sidenav {
+#headerMessage {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+
+/* @media screen and (min-width: 980px) {
+  .sidenav {
     display: none !important;
-  } */
+  } 
   .section {
     margin-top: 125px;
   }
-}
+}*/
