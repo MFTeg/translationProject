@@ -117,46 +117,46 @@ h4 {
   }
 }
 
-  #imgLogoId,
-  .logoBigContainer {
-    margin-left: 10px;
-    margin-top: 50px;
-  }
+#imgLogoId,
+.logoBigContainer {
+  margin-left: 10px;
+  margin-top: 50px;
+}
 
-  .message {
-    color: #000000;
-    text-align: center;
-    margin-top: 250px;
-    font-weight: 700;
-    font-family: "Charm", cursive;
-  }
-  .messageBigContainer {
-    color: #000000;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 50px;
-    font-weight: 700;
-    font-family: "Charm", cursive;
-  }
+.message {
+  color: #000000;
+  text-align: center;
+  margin-top: 250px;
+  font-weight: 700;
+  font-family: "Charm", cursive;
+}
+.messageBigContainer {
+  color: #000000;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  font-weight: 700;
+  font-family: "Charm", cursive;
+}
 
-  .containerSmallMessage {
-    font-family: "Roboto", sans-serif;
-    font-style: italic;
-  }
+.containerSmallMessage {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+}
 
-  #bigContainerMessage {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    color: #000000;
-  }
-  #buttonSignIn {
-    background-color: #4682b4;
-    color: #ffffff;
-    margin-top: 10px;
-    border-radius: 8px;
-  }
+#bigContainerMessage {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #000000;
+}
+#buttonSignIn {
+  background-color: #4682b4;
+  color: #ffffff;
+  margin-top: 10px;
+  border-radius: 8px;
+}
 
-  /* @media screen and (max-width: 980px) {
+/* @media screen and (max-width: 980px) {
     #containerSmall {
       display: none !important;
     }
@@ -164,4 +164,3 @@ h4 {
       width: 100%;
     }
   } */
-}
