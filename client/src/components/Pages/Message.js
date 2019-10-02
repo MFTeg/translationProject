@@ -133,7 +133,7 @@ class Message extends React.Component {
 
             <div className="col s12 m6" id="containerBigMsg">
               <div className="chatRoomNav">
-                {/* <Navbar page="message" signOut={this.signOut} /> */}
+                <Navbar page="message" signOut={this.signOut} />
               </div>
               <div>
                 {/* <a id="logo-container" href={"/message"} className="brand-logo">
