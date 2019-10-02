@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
+
 // import Navbar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 import "../Signup/Signup.css";
 import LogoImg from "../../Image/logoImg.png";
 
@@ -96,7 +97,7 @@ class Signup extends React.Component {
                   onChange={event => this.signupInfo(event)}
                 >
                   <option value="en">English</option>
-                  <option value="es">Espanish</option>
+                  <option value="es">Spanish</option>
                   <option value="it">Italian</option>
                   <option value="ru">Russian</option>
                 </select>
@@ -115,7 +116,7 @@ class Signup extends React.Component {
               </a>
             </div>
           </div>
-          <div>{/* <Footer /> */}</div>
+          <div><Footer /></div>
         </div>
       </div>
     );

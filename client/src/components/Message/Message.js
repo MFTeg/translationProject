@@ -3,6 +3,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
+
 let socket = io();
 class Message extends React.Component {
   state = {

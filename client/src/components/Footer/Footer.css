@@ -1,5 +1,9 @@
 footer.page-footer {
   margin: 0;
+  position: absolute;
+  bottom: 0;
+  height: 2.5rem;
+  z-index: 1000;
 }
 #logo-container,
 li {
