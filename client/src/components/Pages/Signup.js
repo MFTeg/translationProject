@@ -114,12 +114,13 @@ class Signup extends React.Component {
                   <option value="ru">Russian</option>
                 </select>
               </div>
+
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
                 type="submit"
                 name="action"
-                onClick={() => this.signUp()}
+                onClick={event => this.signUp(event)}
               >
                 Sign Up
               </button>
