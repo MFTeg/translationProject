@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 
-// import Navbar from "../Navbar/Navbar";
-// import Footer from "../Navbar/Navbar";  
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Navbar/Navbar";  
 // import { Link } from "react-router-dom";
-     
+import "../Message/Message.css";     
 import io from "socket.io-client";
 import Axios from "axios";
 let socket = io.connect(`http://localhost:3001`);
@@ -64,15 +64,18 @@ class Message extends React.Component {
     render() {
         return (
             <div>
+              <Navbar />
                 <div id = "userList">
-            <h2>Welcome To Our Chatroom</h2>
+         
             
             </div> 
+            <div className = 'chat-window'>
+            <h5>Welcome To Our Chatroom</h5>
             <div id="chat-window">
                 <div id="output"></div>
                 <div id="feedback"></div>
             </div>
-       
+            </div>
 
            
            <input id="userName" type="text" placeholder="userName"
@@ -94,6 +97,10 @@ class Message extends React.Component {
             <button id="send"
                     onClick={() => this.Chatbox()}>
              Send</button>
+             <button id="Signout"
+                    onClick={() => this.Chatbox()}>
+             Signout</button>
+    
             </div>
             );
         }

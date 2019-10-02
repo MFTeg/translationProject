@@ -40,16 +40,10 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link
-              to="/PublicChat"
-              id="download-button"
-              className="btn-large waves-effect waves-light blue lighten-1"
-            >
-              PublicChat
-            </Link>
+        
           </li>
         </ul>
-        <a href="chatroom.html">Redirect to Html page</a>
+       
         <ul id="nav-mobile" className="sidenav">
           <li>
             <Link to="/">Navbar Link</Link>

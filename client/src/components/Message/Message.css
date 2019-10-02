@@ -1,10 +1,27 @@
-#chat-window {
+.chat-window {
   height: 400px;
   overflow: auto;
   /* background: #f9f9f9; */
   background: #bbd5f3;
+  
 }
-
+.welcome{
+  text-align: center;
+  color: navy;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.button1 {
+  background-color: navy;
+  color:white;
+  font-size: 20px;
+  padding: 15px;
+}
+.input-area{
+  text-align: center;
+  color: lavender;
+  padding:30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
 #output p {
   padding: 14px 0px;
   margin: 0 20px;
