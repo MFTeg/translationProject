@@ -60,26 +60,33 @@ function Navbar(props) {
 
         {button}
 
-        <ul id="nav-mobile" className="sidenav">
+        {/* <ul>
           <li className="divider">
-            <li>
-              <a href={"/"}>Home</a>
-            </li>
-          </li>
-          <li className="divider">
-            {" "}
-            <a href={"/signin"}>Sign In</a>
-          </li>
-
-          <li className="divider">
-            {" "}
             <a href={"/signup"}>Sign Up</a>
           </li>
-        </ul>
-
-        <a href={"/"} data-target="nav-mobile" className="sidenav-trigger">
-          <i className="material-icons" id="sideNavMenu">
+        </ul> */}
+        <ul id="nav-mobile" class="sidenav">
+          <li class="divider">
+            <li>
+              <a href={"/"}>HOME</a>
+            </li>
+          </li>
+          <li class="divider">
             {" "}
+            <a href={"/signin"}>SIGN IN</a>
+          </li>
+          <li class="divider">
+            {" "}
+            <a href={"/signup"}>SIGN UP</a>
+          </li>
+        </ul>
+        <a
+          // className="sidenavClass"
+          href={"/"}
+          data-target="nav-mobile"
+          className="sidenav-trigger"
+        >
+          <i className="material-icons" id="sideNavMenu">
             &#xE5D2;
           </i>
         </a>

@@ -64,6 +64,19 @@ class Signup extends React.Component {
         </div>
 
         <div className="col s12 m7" id="containerBig">
+          <div className="nav-wrapper container">
+            <a href="/" className="brand-logo">
+              <img
+                className="circle"
+                id="imgLogoBig"
+                alt="logoImg"
+                src={LogoImg}
+              />
+            </a>
+          </div>
+          <div className="containerBigMessage">
+            <h4>Create An Account</h4>
+          </div>
           <div className="row" id="formContainer">
             <div className="col s9">
               <p>PERSONAL INFORMATION</p>
@@ -102,12 +115,13 @@ class Signup extends React.Component {
                   <option value="ru">Russian</option>
                 </select>
               </div>
+
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
                 type="submit"
                 name="action"
-                onClick={() => this.signUp()}
+                onClick={event => this.signUp(event)}
               >
                 Sign Up
               </button>
