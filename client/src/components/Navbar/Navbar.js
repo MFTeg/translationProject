@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
 // import LogoImg from "../components/Image/logoImg.png";
 import LogoImg from "../../Image/logoImg.png";
-
+import PublicChat from "../Pages/chatroom"
 
 
 function Navbar() {
@@ -40,13 +40,13 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            {/* <Link
-              to="/Message"
+            <Link
+              to="/PublicChat"
               id="download-button"
               className="btn-large waves-effect waves-light blue lighten-1"
             >
-              Message
-            </Link> */}
+              PublicChat
+            </Link>
           </li>
         </ul>
         <a href="chatroom.html">Redirect to Html page</a>
@@ -59,7 +59,9 @@ function Navbar() {
           <i className="material-icons">menu</i>
         </Link>
       </div>
+  
     </nav>
+   
   );
 }
 export default Navbar;

@@ -1,6 +1,6 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import "../Header/Header.css";
+import "../Header/Header.css"
 // import WorldImg from "../../Image/WorldImg.png";
 
 function Header() {

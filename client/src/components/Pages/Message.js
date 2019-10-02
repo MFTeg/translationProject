@@ -1,122 +1,106 @@
-import React from "react";
-import axios from "axios";
-import io from "socket.io-client";
-import Navbar from "../Navbar/Navbar";
-import "../Message/Message.css";
-let socket = io(`http://localhost:3001`);
-class Message extends React.Component {
-  state = {
-    msgContent: "",
-    // language: "",
-    // senderId: localStorage.getItem("_id"),
-    // reciverId: "",
-    // receiver: "",
-    receiverEmail: ""
-  };
+import React, {Component} from "react";
 
-  
-  componentDidMount() {
-    socket.on("chat", function(data) {
-      console.log("MessageJS, on Chat")
-      console.log(data);
-       var output = document.getElementById("output")
+// import Navbar from "../Navbar/Navbar";
+// import Footer from "../Navbar/Navbar";  
+// import { Link } from "react-router-dom";
      
-      output.innerHTML +=
-        "<p><strong>" +
-        data.handle +
-        ": </strong>" +
-        data.message +
-        "<br>" +
-        // data.messageT +
-        "<br></p>";
-    });
-  }
+import io from "socket.io-client";
+import Axios from "axios";
+let socket = io.connect(`http://localhost:3001`);
 
-  messageInfo = event => {
-    // console.log(event.target.value);
-    // console.log(event.target.id);
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+socket.on("connected", function(data) {
+    console.log("We are connected")
+    console.log(data);
+})
 
-    // if (event.target.id === "receiverEmail") {
-    //   this.getReceivers(event.target.value);
-    //   // console.log(event.target.value)
-    // }
-  };
 
-  inputMessage = () => {
-    // console.log(this.state);
-    // console.log(this.state.receiverEmail)
-  
-    //find recievers full info
-      // this.getReceivers(this.state.receiverEmail);
-
-    // let data = this.state;
-    // axios.post("/send", data).then(response => {
-    //   console.log("Sending");
-    //   console.log(response);
-    //   console.log(response.data);
-      socket.emit("chat", {
+class Message extends React.Component {
     
-        message: this.state.msgContent,
-        handle: this.state.receiverEmail
-      });
-  //   // });
-  };
+  
+  
+  constructor(){
+    super()
+    this.state = {
+        message: "",
+        userName: "",
+        language: "",
 
-  // getReceivers = query => {
-  //   //  Get a list of message receivers
-  //   axios
-  //     .post("/users", {
-  //       query: query
-  //     })
-  //     .then(response => {
-  //       console.log(response.data);
-  //       this.setState({
-  //         receivers: response.data
-  //       });
-  //     });
-  // };
-
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <br />
-        <br />
-        <label htmlFor="msgContent">Message</label>
-        <input
-          type="text"
-          id="msgContent"
-          onChange={event => this.messageInfo(event)}
-        />
-
-        <label htmlFor="language">Language</label>
-        {/* <input
-          type="text"
-          id="language"
-          onChange={event => this.messageInfo(event)}
-        /> */}
-
-        <label htmlFor="receiver-search">Send to</label>
-        <input
-          id="receiverEmail"
-          type="text"
-          onChange={event => this.messageInfo(event)}
-        />
-
-        <button id="buttonMessage" onClick={() => this.inputMessage()}>
-          Input Message
-        </button>
-
-        <div id="chat-window">
-          <div id="output"></div>
-          <div id="feedback"></div>
-        </div>
-      </div>
-    );
+      }
   }
-}
+      componentDidMount() {
+        socket.on("chatlog", function(data) {
+          console.log("We are connected")
+          console.log(data);
+          console.log(data.messageT[0])
+
+        var output =  document.getElementById("output")
+        output.innerHTML += "<p><strong>" + data.username + ":   </strong>" + data.message +"<br>" + data.messageT[0]
+       
+        });
+  
+      };
+     
+        
+      ChatInfo = event => {
+        // console.log(event.target.id)
+      console.log("working")
+        this.setState({
+          [event.target.id]: event.target.value
+        });
+      }
+     
+   
+     
+      Chatbox = () => {
+        console.log(this.state);
+          socket.emit("chatroom", {
+            message: this.state.message,
+            username: this.state.userName,
+            language: this.state.language
+          });
+
+      }
+
+    render() {
+        return (
+            <div>
+                <div id = "userList">
+            <h2>Welcome To Our Chatroom</h2>
+            
+            </div> 
+            <div id="chat-window">
+                <div id="output"></div>
+                <div id="feedback"></div>
+            </div>
+       
+
+           
+           <input id="userName" type="text" placeholder="userName"
+             onChange={event => this.ChatInfo(event)}/> 
+
+            <input id="message" type="text" placeholder="message"
+             onChange={event => this.ChatInfo(event)}/> 
+
+<div className="input-field col s12">
+              <select id="language" onChange={event => this.ChatInfo(event)}>
+                <option value="en">Select the language you would like to translate to</option>
+                <option value="en">English</option>
+                <option value="es">Espanish</option>
+                <option value="it">Italian</option>
+                <option value="ru">Russian</option>
+              </select>
+            </div>
+           
+            <button id="send"
+                    onClick={() => this.Chatbox()}>
+             Send</button>
+            </div>
+            );
+        }
+
+      }     
 
 export default Message;
+
+
+    

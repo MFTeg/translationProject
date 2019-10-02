@@ -1,8 +1,9 @@
 require("dotenv").config();
+var cookieParser = require('cookie-parser')
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const socket = require("socket.io");
+
 const translate = require("yandex-translate")(
   "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
 );
@@ -11,8 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const User = require("./models/user.js");
 const Message = require("./models/message");
+const OnlineUsers = require("./models/onlineUsers.js");
+
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
+
 
 
 app.use(
@@ -31,145 +35,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-//  App routes
-app.post("/data", function(req, res) {
-  console.log(req.body);
-  User.create(req.body)
-    .then(function(dbUser) {
-      // If saved successfully, send the the new User document to the client
-      res.json(dbUser);
-    })
-    .catch(function(err) {
-      // If an error occurs, send the error to the client
-      res.json(err);
-    });
-});
-
-app.post("/signin", function(req, res) {
-  console.log(req.body);
-  User.findOne(req.body)
-    .then(function(dbUser) {
-      console.log("Signed in");
-      // If saved successfully, send the the new User document to the client
-      res.json(dbUser._id);
-    })
-    .catch(function(err) {
-      // If an error occurs, send the error to the client
-      res.json(err);
-    });
-});
-
-app.post("/users", function(req, res) {
-  console.log("Do something");
-  console.log(req.body);
-  User.find({
-    fullName: {
-      $regex: req.body.query,
-      $options: "i"
-    }
-  })
-    .then(data => {
-      let userList = [];
-      for (let i = 0; i < data.length; i++) {
-        userList.push({
-          _id: data[i]._id,
-          fullName: data[i].fullName,
-          email: data[i].email
-        });
-      }
-
-      User.find({
-        email: {
-          $regex: req.body.query,
-          $options: "i"
-        }
-      })
-        .then(results => {
-          let listLen = userList.length;
-          console.log(userList);
-          console.log(results);
-          console.log(listLen);
-          for (let i = 0; i < results.length; i++) {
-            let repeat = false;
-
-            for (let j = 0; j < listLen; j++) {
-              repeat = results[i]._id.toString() === userList[j]._id.toString();
-              if (repeat) {
-                break;
-              }
-            }
-
-            if (!repeat) {
-              userList.push({
-                _id: results[i]._id,
-                fullName: results[i].fullName,
-                email: results[i].email
-              });
-            }
-          }
-
-          res.json(userList);
-        })
-        .catch(err => console.log(err));
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-
-app.get("/messages", function(req, res) {
-  console.log("Get messages");
-  Message.find({})
-    .populate("senderId")
-    .populate("reciverId")
-    .then(data => {
-      res.json(data);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-
-app.post("/send", function(req, res) {
-  console.log("Send message");
-  console.log(req.body);
-  User.findOne({
-    email: req.body.receiverEmail
-  })
-    .then(data => {
-      console.log(data);
-
-      let messageData = {
-        language: req.body.language,
-        senderId: req.body.senderId,
-        reciverId: data._id,
-        msgContent: req.body.msgContent
-      };
-      Message.create(messageData).then(function(dbMessage) {
-        // If saved successfully, send the the new User document to the client
-        res.json(dbMessage);
-      });
-    })
-
-    .catch(function(err) {
-      // If an error occurs, send the error to the client
-      res.json(err);
-    });
-  //  Get the properties from the front end via req.body
-  //  Find a way to get the User ObjectId when a message is sent
-
-  //  Create a new message
-});
-
-app.get("/inbox", function(req, res) {
-  //  Retrieve a number of messages from a user utilizing the User ObjectId
-  //  Use .populate(<Schema property>) to get the actual name(s) to display
-});
-
-app.get("/", function(req, res) {
-  res.send("Routing");
-});
-
 mongoose
   .connect(
     "mongodb://" +
@@ -187,52 +52,97 @@ mongoose
     console.log(err);
   });
 
-// Start the API server
+  
+const socket = require("socket.io");
 let server = app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
-
-// Socket setup & pass server
+});  
 var io = socket(server);
 io.on("connection", socket => {
-  console.log("made socket connection", socket.id);
 
-  socket.on("signIn", function(data) {
-    console.log("heres the signIndata")
+  var cookief =socket.handshake.headers.cookie; 
+  
+    console.log(cookief);
+    // console.log(cookies)
+
+  io.sockets.emit("connected",{
+      Id: socket.id
+  })
+
+
+  socket.on('signIn', function (data) {
     console.log(data)
+ 
+    OnlineUsers.create({
+      userName: data.userName,
+      password: data.password,
+      language: data.language,
+      cookie: cookief,
+     }, function(err, OnlineUser){
+       if(err){
+         console.log("houston we have a problem")
+         console.log(err)
+       } 
+       else {
+         console.log("added to database")
+         console.log(OnlineUser)
+         OnlineUsers.find(function (err, res) {
+          if (err) throw err;
+          socket.emit('userList', res); 
+      });
+       }
+    })
+
+   })
+ 
+  
+
+socket.on("SignUpData", function(data){
+  data.cookief = cookief
+  console.log(data)
+  
+        User.create({
+          fullName: data.fullName,
+          userName:data.userName,
+          password:data.password,
+          email:data.email,
+          language:data.language,
+          cookie: cookief
+        }, function(err, sender){
+          if(err){
+            console.log("houston we have a problem")
+            console.log(err)
+          } 
+          else {
+            console.log("added to database")
+            console.log(sender)
+          }
+        });
   });
-  // Handle chat event
-  socket.on("chat", function(data) {
+
+  socket.on("chatroom", function(data) {
     console.log("Getting socket data");
     console.log(data);
-    console.log(data.handle)
-    let userLang;
-    var receiverEmail = data.handle
-//find the email of the reciepient in the database
-    User.findOne({email: receiverEmail}, function(err, user){
-      if(err){
-        console.log("houston we have a problem")
-        console.log(err)
-      } else {
-        console.log(user)
-        console.log(user.fullName)
-        console.log(user.language)
-
-      }
-    })   
 
   
-     
-    // io.sockets.emit("chat", data)
-  });
-  // Handle typing event
-  socket.on("typing", function(data) {
-    socket.broadcast.emit("typing", data);
-  });
+ 
 
-  io.sockets.on("connection", function(socket) {
-    socket.on("create", function(room) {
-      socket.join(newRoom);
-    });
-  });
+        translate.translate(data.message, { to: data.language }, function(err, res) {
+        console.log(res.text);
+        data.messageT = res.text
+        io.sockets.emit('chatlog', {
+          username: data.username,
+          message: data.message,
+          messageT: data.messageT
+        });
+       
+        });  
+      });
+  
+
+    
+
+
+
+
 });

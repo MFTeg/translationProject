@@ -4,6 +4,8 @@ import "../Signin/Signin.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import io from "socket.io-client";
+let socket = io.connect(`http://localhost:3001`);
 // import LogoImg from "../../Image/logoImg.png";
 
 class Signin extends React.Component {
@@ -23,15 +25,15 @@ class Signin extends React.Component {
   signIn = () => {
     console.log(this.state); //This .state Email, password and language
     let data = this.state;
-    axios.post("/signin", data).then(response => {
-      console.log(response.data);
-      // axios.get("/data", data).then(response => {
-      //   console.log(response.data);
-      // });
-      //  Returns the user id, which can then be stored in localStorage
-      localStorage.clear();
-      localStorage.setItem("_id", response.data);
-    });
+   
+    socket.emit("signIn", {
+      userName: data.userName,
+      password: data.password,
+      language: data.language
+    })
+    
+   
+  
   
   };
 
@@ -53,25 +55,13 @@ class Signin extends React.Component {
             <div>
 
 
-            <label htmlFor="bob">bob</label>
+            <label htmlFor="userName">userName</label>
             <input
               type="text"
-              id="bob"
+              id="userName"
               // className="col s9"
               onChange={event => this.signInInfo(event)}
             />
-
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              // className="col s9"
-              onChange={event => this.signInInfo(event)}
-            />
-    
-   
-
-            
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -80,6 +70,18 @@ class Signin extends React.Component {
               onChange={event => this.signInInfo(event)}
             />
     
+
+                <div className="input-field col s12">
+              <select id="language" onChange={event => this.signInInfo(event)}>
+                <option value="en">Select your preffered Language</option>
+                <option value="en">English</option>
+                <option value="es">Espanish</option>
+                <option value="it">Italian</option>
+                <option value="ru">Russian</option>
+              </select>
+            </div>
+    
+         
     </div>
             <Link
               to="/Message"
