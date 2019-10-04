@@ -128,6 +128,11 @@ class Message extends React.Component {
               </div>
               <div className="containerSmallMessage" id="howToUse">
                 <h6> Cool Ways To Use JustTranslator </h6>
+                <br/>
+                <p>Communicate with friends around the world in real time</p>
+                <br/>
+                <p>Have a fluid conversation with people that speak a different language</p>
+                <br/>
               </div>
             </div>
 
@@ -202,9 +207,6 @@ class Message extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col s12 m3" id="containerSmallMsgThree">
-              this is container small
             </div>
           </div>
         )}
