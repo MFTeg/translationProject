@@ -35,6 +35,14 @@ class Signup extends React.Component {
     let data = this.state;
     axios.post("/data", data).then(response => {
       console.log(response.data);
+      if (response.error) {
+        console.log("Login Incorrect");
+        alert("Incorrect email format please type again");
+        //   window.location.href = "/signup";
+      } else {
+        console.log("Response is true, so redirecting to profile-page....");
+        //   window.location.href = "/signin";
+      }
     });
   };
 
@@ -106,7 +114,7 @@ class Signup extends React.Component {
               <p>ACCOUNT SECURITY</p>
               <label htmlFor="email">Email</label>
               <input
-                type="text"
+                type="email"
                 id="email"
                 onChange={event => this.signupInfo(event)}
               />
@@ -159,7 +167,9 @@ class Signup extends React.Component {
               </a>
             </div>
           </div>
-          <div><Footer /></div>
+          <div>
+            <Footer />
+          </div>
         </div>
       </div>
     );

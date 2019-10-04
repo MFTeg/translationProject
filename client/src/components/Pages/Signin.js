@@ -92,14 +92,14 @@ class Signin extends React.Component {
               <p id="signInStatus"></p>
               <button
                 id="buttonSignIn"
-                class="btn waves-effect waves-light"
+                className="btn waves-effect waves-light"
                 type="submit"
                 name="action"
                 onClick={() => this.signIn()}
               >
                 Sign In
               </button>
-              <a href={"/signup"} class="right">
+              <a href={"/signup"} className="right">
                 Create account
               </a>
             </div>
@@ -118,7 +118,7 @@ class Signin extends React.Component {
               className="btn waves-effect waves-light center"
               type="submit"
             >
-              <a href={"/signup"} class="right">
+              <a href={"/signup"} className="right">
                 Join Now
               </a>
             </button>
