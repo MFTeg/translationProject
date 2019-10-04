@@ -5,6 +5,7 @@ import axios from "axios";
 import Footer from "../Footer/Footer";
 import "../Signup/Signup.css";
 import LogoImg from "../../Image/logoImg.png";
+import { Link } from 'react-router-dom';
 
 class Signup extends React.Component {
   state = {
@@ -115,7 +116,7 @@ class Signup extends React.Component {
                   <option value="ru">Russian</option>
                 </select>
               </div>
-
+              <Link to="/Signin">
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
@@ -125,6 +126,8 @@ class Signup extends React.Component {
               >
                 Sign Up
               </button>
+                </Link>
+
               <a href={"/signin"} className="right">
                 Already A Member!
               </a>

@@ -124,8 +124,7 @@ class Signin extends React.Component {
             </button>
 
             <p>
-              Create Account Translation Station &reg; and Connect to Friends
-              and Loved Ones WithOut any Language Barier
+              Create An Account
             </p>
           </div>
         </div>

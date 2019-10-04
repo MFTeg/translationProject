@@ -177,7 +177,22 @@ class Message extends React.Component {
                   />
 
                   <label htmlFor="language">Language</label>
-                  <input
+                  <div className="input-field col s12">
+                <select
+                  id="language"
+                  placeholder={
+                    "Default: " +
+                    this.languagePreferenceFormat(this.state.language)
+                  }
+                  onChange={event => this.messageInfo(event)}
+                >
+                  <option value="en">English</option>
+                  <option value="es">Spanish</option>
+                  <option value="it">Italian</option>
+                  <option value="ru">Russian</option>
+                </select>
+              </div>
+                  {/* <input
                     type="text"
                     id="language"
                     placeholder={
@@ -185,7 +200,7 @@ class Message extends React.Component {
                       this.languagePreferenceFormat(this.state.language)
                     }
                     onChange={event => this.messageInfo(event)}
-                  />
+                  /> */}
 
                   <label htmlFor="receiver-search">Send to</label>
                   <input
