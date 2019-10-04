@@ -160,7 +160,7 @@ class Message extends React.Component {
                       />
                     </a>
                   </div> */}
-
+                  {/* ignore */}
                   {/* <div className="containerBigMessage"></div> */}
 
                   <label htmlFor="msgContent">Message</label>
