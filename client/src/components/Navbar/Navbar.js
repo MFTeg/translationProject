@@ -5,6 +5,18 @@ import "../Navbar/Navbar.css";
 import LogoImg from "../../Image/logoImg.png";
 
 function Navbar(props) {
+  // let logoText = "";
+
+  // if (props.page === "message") {
+  //   logoText = (
+  //     <a href={"/"}>
+  //       <img className="circle" alt="logoImg" src={LogoImg} />
+  //     </a>
+  //   );
+  // } else {
+  //   logoText === "";
+  // }
+
   let button = "";
   if (props.page === "message") {
     button = (
@@ -47,6 +59,36 @@ function Navbar(props) {
       </ul>
     );
   }
+  let button2 = "";
+
+  if (props.page === "message") {
+    button2 = (
+      <ul id="nav-mobile" className="sidenav">
+        <li className="divider">
+          <a href={"/"}>HOME</a>
+        </li>
+        <li className="divider">
+          {" "}
+          <a href={"/signout"}>SIGN OUT</a>
+        </li>
+      </ul>
+    );
+  } else {
+    button2 = (
+      <ul id="nav-mobile" className="sidenav">
+        <li className="divider">
+          <a href={"/"}>HOME</a>
+        </li>
+        <li className="divider">
+          {" "}
+          <a href={"/signin"}>SIGN IN</a>
+        </li>
+        <li className="divider">
+          <a href={"/signup"}>SIGN UP</a>
+        </li>
+      </ul>
+    );
+  }
 
   return (
     <nav className="navBarClass" id="navbar" role="navigation">
@@ -57,29 +99,10 @@ function Navbar(props) {
         <a id="logo-container" href={"/"} className="brand-logo">
           JustTranslator
         </a>
-
+        {/* {logoText} */}
         {button}
 
-        {/* <ul>
-          <li className="divider">
-            <a href={"/signup"}>Sign Up</a>
-          </li>
-        </ul> */}
-        <ul id="nav-mobile" class="sidenav">
-          <li class="divider">
-            <li>
-              <a href={"/"}>HOME</a>
-            </li>
-          </li>
-          <li class="divider">
-            {" "}
-            <a href={"/signin"}>SIGN IN</a>
-          </li>
-          <li class="divider">
-            {" "}
-            <a href={"/signup"}>SIGN UP</a>
-          </li>
-        </ul>
+        {button2}
         <a
           // className="sidenavClass"
           href={"/"}
