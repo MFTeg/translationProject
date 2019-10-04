@@ -6,6 +6,13 @@ import Footer from "../Footer/Footer";
 import "../Signup/Signup.css";
 import LogoImg from "../../Image/logoImg.png";
 
+//import { makeStyles } from "@material-ui/core/styles";
+//import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+//import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+
 class Signup extends React.Component {
   state = {
     fullName: "",
@@ -15,7 +22,8 @@ class Signup extends React.Component {
   };
 
   signupInfo = event => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
+    console.log(event.target);
     console.log(event.target.id);
     this.setState({
       [event.target.id]: event.target.value
@@ -27,6 +35,14 @@ class Signup extends React.Component {
     let data = this.state;
     axios.post("/data", data).then(response => {
       console.log(response.data);
+    });
+  };
+
+  selectLanguage = event => {
+    console.log("select Language");
+    console.log(event.target);
+    this.setState({
+      language: event.target.value
     });
   };
 
@@ -102,11 +118,25 @@ class Signup extends React.Component {
               />
               <br />
               <p>LANGUAGE PREFERENCE</p>
-              <label htmlFor="password">Language</label>
+              {/* <label htmlFor="password">Language</label> */}
+              <FormControl className="col s12">
+                {/* <InputLabel>Language</InputLabel> */}
+                <Select
+                  id="language"
+                  value={this.state.language}
+                  onChange={event => this.selectLanguage(event)}
+                >
+                  <MenuItem value="en">English</MenuItem>
+                  <MenuItem value="es">Spanish</MenuItem>
+                  <MenuItem value="it">Italian</MenuItem>
+                  <MenuItem value="ru">Russian</MenuItem>
+                </Select>
+              </FormControl>
 
-              <div className="input-field col s12">
+              {/* <div className="col s12">
                 <select
                   id="language"
+                  value={this.state.language}
                   onChange={event => this.signupInfo(event)}
                 >
                   <option value="en">English</option>
@@ -114,8 +144,7 @@ class Signup extends React.Component {
                   <option value="it">Italian</option>
                   <option value="ru">Russian</option>
                 </select>
-              </div>
-
+              </div> */}
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
@@ -125,7 +154,7 @@ class Signup extends React.Component {
               >
                 Sign Up
               </button>
-              <a href={"/signin"} className="right">
+              <a href={"/signin"} className="right" id="membercheck">
                 Already A Member!
               </a>
             </div>

@@ -203,6 +203,12 @@ app.get("/", function(req, res) {
   res.send("Routing");
 });
 
+// app.get("/*", function(req, res) {
+//   console.log(__dirnamme);
+
+//   res.sendFile(path.join(__dirname, "/public/index.html"));
+// });
+
 mongoose
   .connect(
     "mongodb://" +

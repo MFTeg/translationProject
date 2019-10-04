@@ -115,23 +115,23 @@ class Message extends React.Component {
           </div>
         ) : (
           <div className="row">
-            <div className="col s12 m3" id="containerSmallMsg">
+            <div className="col s12 m3" id="containerSmallFirst">
               <div className="nav-wrapper container">
-                <a href="/" className="brand-logo">
+                {/* <a href="/" className="brand-logo">
                   <img
                     className="circle"
                     id="imgLogoSmall"
                     alt="logoImg"
                     src={LogoImg}
                   />
-                </a>
+                </a> */}
               </div>
               <div className="containerSmallMessage" id="howToUse">
                 <h6> Cool Ways To Use JustTranslator </h6>
               </div>
             </div>
 
-            <div className="col s12 m6" id="containerBigMsg">
+            <div className="col s12 m6" id="containerChatWindow">
               <div className="chatRoomNav">
                 <Navbar page="message" signOut={this.signOut} />
               </div>
@@ -161,7 +161,7 @@ class Message extends React.Component {
                     </a>
                   </div> */}
 
-                  <div className="containerBigMessage"></div>
+                  {/* <div className="containerBigMessage"></div> */}
 
                   <label htmlFor="msgContent">Message</label>
                   <input
@@ -193,7 +193,7 @@ class Message extends React.Component {
                     id="buttonMessage"
                     onClick={() => this.inputMessage()}
                   >
-                    Input Message
+                    Send
                   </button>
 
                   <div className="chat-window">
@@ -203,7 +203,7 @@ class Message extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col s12 m3" id="containerSmallMsgThree">
+            <div className="col s12 m3" id="containerSmallLast">
               this is container small
             </div>
           </div>

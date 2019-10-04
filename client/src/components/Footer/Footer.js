@@ -23,7 +23,7 @@ function Footer() {
               </li>
               <li>
                 <a className="white-text" href="#!">
-                  Cool ways to use TranslationStation
+                  Cool ways to use JustTranslator
                 </a>
               </li>
             </ul>
@@ -33,7 +33,7 @@ function Footer() {
             <ul>
               <li>
                 <a className="white-text" href="#!">
-                  TranslationStation@gmail.com
+                  JustTranslator@gmail.com
                 </a>
               </li>
               <li>
