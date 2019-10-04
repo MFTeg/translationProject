@@ -9,11 +9,11 @@ function Footer() {
     <div className="footerContainer">
       <div className="container">
         <div className="row">
-          <div className="col l6 s12">
+          <div className="col l4 s12">
             <h5 className="white-text">Our Vision</h5>
             <p className="white-text">Connecting the world without borders!</p>
           </div>
-          <div className="col l3 s12">
+          <div className="col l4 s12">
             <h5 className="white-text">Blog</h5>
             <ul>
               <li>
@@ -28,7 +28,7 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="col l3 s12">
+          <div className="col l4 s12">
             <h5 className="white-text">Contact us</h5>
             <ul>
               <li>

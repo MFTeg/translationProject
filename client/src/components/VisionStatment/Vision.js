@@ -6,8 +6,7 @@ import "../VisionStatment/Vision.css";
 
 function Vision() {
   return (
-    // <div className="visionContainer">
-    // <div className="section" id="visionSection">
+    <div className="visionContainer">
     <div className="row" id="visionRow">
       <div className="col s12 center" id="vision">
         <h3>
@@ -28,8 +27,7 @@ function Vision() {
         </p>
       </div>
     </div>
-    // </div>
-    // </div>
+   </div>
   );
 }
 export default Vision;

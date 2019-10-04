@@ -1,9 +1,13 @@
 .section {
   background-image: url("../../Image/WorldImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
   margin: 20px 20px 20px 20px;
-  height: 400px;
+  height: 50vh;
   font-family: "Roboto", sans-serif;
   font-style: normal;
+  /* background-repeat: no-repeat */
 }
 
 #headerMessage {
