@@ -30,10 +30,11 @@ class Signin extends React.Component {
       if (response.data.status === 200) {
         localStorage.clear();
         localStorage.setItem("_id", response.data.id);
-        window.location.href = "/message";
+        // window.location.href = "/message";
+        this.props.history.push("/Message");
       }
       console.log(response.data.message);
-      document.getElementById("signInStatus").innerText = response.data.message;
+      // document.getElementById("signInStatus").innerText = response.data.message;
     });
   };
 
@@ -93,7 +94,7 @@ class Signin extends React.Component {
               <button
                 id="buttonSignIn"
                 className="btn waves-effect waves-light"
-                type="submit"
+                // type="submit"
                 name="action"
                 onClick={() => this.signIn()}
               >

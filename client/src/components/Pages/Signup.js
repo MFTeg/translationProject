@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 // import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+//import Footer from "../Footer/Footer";
 import "../Signup/Signup.css";
 import LogoImg from "../../Image/logoImg.png";
 
@@ -14,6 +14,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+
   state = {
     fullName: "",
     email: "",
@@ -35,13 +40,17 @@ class Signup extends React.Component {
     let data = this.state;
     axios.post("/data", data).then(response => {
       console.log(response.data);
-      if (response.error) {
+      console.log(response.error);
+
+      if (response.data.errors) {
         console.log("Login Incorrect");
         alert("Incorrect email format please type again");
-        window.location.href = "/signup";
+        //window.location.href = "/signup";
       } else {
-        console.log("Response is true, so redirecting to message app");
-        window.location.href = "/signin";
+        console.log("Response is true, so redirecting to profile-page....");
+        // window.location.href = "/signin";
+
+        this.props.history.push("/Signin");
       }
     });
   };
@@ -156,7 +165,7 @@ class Signup extends React.Component {
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
-                type="submit"
+                // type="submit"
                 name="action"
                 onClick={event => this.signUp(event)}
               >
@@ -167,13 +176,13 @@ class Signup extends React.Component {
               </a>
             </div>
           </div>
-          <div>
-            <Footer />
-          </div>
+          <div>{/* <Footer /> */}</div>
         </div>
       </div>
     );
   }
 }
-
+// Signup.contextTypes = {
+//   router: React.PropTypes.func.isRequired
+// };
 export default Signup;
