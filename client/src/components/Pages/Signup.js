@@ -38,10 +38,10 @@ class Signup extends React.Component {
       if (response.error) {
         console.log("Login Incorrect");
         alert("Incorrect email format please type again");
-        //   window.location.href = "/signup";
+        window.location.href = "/signup";
       } else {
-        console.log("Response is true, so redirecting to profile-page....");
-        //   window.location.href = "/signin";
+        console.log("Response is true, so redirecting to message app");
+        window.location.href = "/signin";
       }
     });
   };

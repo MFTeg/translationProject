@@ -36,11 +36,11 @@
   margin-left: 0px;
   /* position: fixed; */
 }
-#chatRoomContainer {
+/* #chatRoomContainer {
   font-family: "Roboto", sans-serif;
   color: #000000;
   border: 2px solid red;
-}
+} */
 
 #containerChatWindow {
   background-color: #ffffff;
