@@ -203,9 +203,7 @@ class Message extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col s12 m3" id="containerSmallLast">
-              {/* this is container small */}
-            </div>
+            <div className="col s12 m3" id="containerSmallLast"></div>
           </div>
         )}
       </div>
