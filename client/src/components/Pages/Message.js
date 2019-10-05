@@ -127,7 +127,7 @@ class Message extends React.Component {
                 </a> */}
               </div>
               <div className="containerSmallMessage" id="howToUse">
-                <h6> Cool Ways To Use JustTranslator </h6>
+                {/* <h6> Cool Ways To Use JustTranslator </h6> */}
               </div>
             </div>
 
@@ -204,7 +204,7 @@ class Message extends React.Component {
               </div>
             </div>
             <div className="col s12 m3" id="containerSmallLast">
-              this is container small
+              {/* this is container small */}
             </div>
           </div>
         )}
