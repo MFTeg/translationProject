@@ -156,7 +156,7 @@ class Signup extends React.Component {
               <button
                 id="button-SignUp"
                 className="btn waves-effect waves-light"
-                type="submit"
+                // type="submit"
                 name="action"
                 onClick={event => this.signUp(event)}
               >
