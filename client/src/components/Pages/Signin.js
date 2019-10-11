@@ -35,6 +35,7 @@ class Signin extends React.Component {
       }
       console.log(response.data.message);
       // document.getElementById("signInStatus").innerText = response.data.message;
+      // alert("Incorrect email or password");
     });
   };
 
@@ -54,6 +55,7 @@ class Signin extends React.Component {
             </a>
           </div>
           <div className="containerSmallMessage">
+            {/* <img className="chatImg1" alt="logoImg" src={chatImg} /> */}
             <h4>Sign In or Create An Account</h4>
           </div>
         </div>
@@ -79,6 +81,7 @@ class Signin extends React.Component {
             <div className="containerSignin">
               <label htmlFor="email">Email</label>
               <input
+                className="validate"
                 type="email"
                 id="email"
                 onChange={event => this.signInInfo(event)}

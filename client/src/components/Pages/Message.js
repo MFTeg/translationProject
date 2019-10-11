@@ -3,7 +3,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
-import LogoImg from "../../Image/logoImg.png";
+//import LogoImg from "../../Image/logoImg.png";
 
 let socket = io(`http://localhost:3001`);
 class Message extends React.Component {
@@ -104,6 +104,7 @@ class Message extends React.Component {
   signOut = () => {
     console.log("signout");
     localStorage.clear();
+    this.props.history.push("/");
   };
 
   render() {
@@ -141,14 +142,14 @@ class Message extends React.Component {
                 </a> */}
               </div>
               <div className="nav-wrapper container">
-                <a href={"/"} className="brand-logo">
+                {/* <a href={"/"} className="brand-logo">
                   <img
                     className="circle"
                     id="imgLogoBig"
                     alt="logoImg"
                     src={LogoImg}
                   />
-                </a>{" "}
+                </a> */}{" "}
                 <div className="chatRoomContainer">
                   {/* <div>
                     <a href={"/"}>

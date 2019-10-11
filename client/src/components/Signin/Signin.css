@@ -3,6 +3,9 @@
   height: 900px;
   margin-left: 0px;
   position: fixed;
+  background-image: url("../../Image/chatImg.jpg");
+  background-size: 950px 900px;
+  background-repeat: no-repeat;
 }
 
 #containerBig {
@@ -21,7 +24,7 @@
 }
 h4 {
   font-weight: 500;
-  color: #000000;
+  color: #075496;
 }
 
 .containerBigMessage {
@@ -54,8 +57,9 @@ h4 {
 }
 
 .containerSmallMessage {
-  margin-top: 250px;
+  margin-top: 350px;
   text-align: center;
+  color: #4682b4;
 }
 
 .containerSignin {
@@ -63,7 +67,7 @@ h4 {
 }
 
 #buttonSignIn {
-  background-color: #4682b4;
+  background-color: #075496;
   border-radius: 8px;
 }
 #buttonSignup {
@@ -126,7 +130,7 @@ h4 {
 .message {
   color: #000000;
   text-align: center;
-  margin-top: 250px;
+  /* margin-top: 250px; */
   font-weight: 700;
   font-family: "Charm", cursive;
 }

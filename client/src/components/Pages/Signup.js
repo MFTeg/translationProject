@@ -110,6 +110,7 @@ class Signup extends React.Component {
           <div className="containerBigMessage">
             <h4>Create An Account</h4>
           </div>
+
           <div className="row" id="formContainer">
             <div className="col s9">
               <p>PERSONAL INFORMATION</p>
