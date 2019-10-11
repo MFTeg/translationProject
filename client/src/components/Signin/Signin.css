@@ -67,10 +67,18 @@ h4 {
 }
 
 #buttonSignIn {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   background-color: #075496;
   border-radius: 8px;
+  color: #ffffff;
+  margin-top: 10px;
+  border-radius: 8px;
 }
+
 #buttonSignup {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
   border-radius: 8px;
   background-color: #bbdefb;
   color: #000000;
@@ -153,11 +161,11 @@ h4 {
   font-weight: 500;
   color: #000000;
 }
-#buttonSignIn {
-  background-color: #4682b4;
-  color: #ffffff;
-  margin-top: 10px;
-  border-radius: 8px;
+
+#membercheckSignin {
+  font-weight: 700;
+  margin-top: 20px;
+  color: #075496;
 }
 
 /* @media screen and (max-width: 980px) {

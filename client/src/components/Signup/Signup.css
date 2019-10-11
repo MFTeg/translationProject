@@ -30,6 +30,10 @@
   margin-top: 50px;
   border-radius: 8px;
 }
+
+input {
+  border-bottom: 1px solid #075496;
+}
 /* @media screen and (max-width: 980px) {
   #containerSmall {
     display: none !important;
@@ -69,5 +73,6 @@
 }
 
 #membercheck {
-  margin-top: 40px;
+  margin-top: 50px;
+  color: #075496;
 }

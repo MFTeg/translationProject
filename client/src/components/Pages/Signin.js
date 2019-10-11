@@ -103,8 +103,8 @@ class Signin extends React.Component {
               >
                 Sign In
               </button>
-              <a href={"/signup"} className="right">
-                Create account
+              <a href={"/signup"} className="right" id="membercheckSignin">
+                Create An Account!
               </a>
             </div>
           </div>
@@ -112,7 +112,7 @@ class Signin extends React.Component {
           <div className="divider">
             {" "}
             <a href={"/signup"} className="aDivider">
-              JustTranslation&reg;
+              {/* JustTranslation&reg; */}
             </a>
           </div>
 
@@ -128,8 +128,16 @@ class Signin extends React.Component {
             </button>
 
             <p>
-              Create Account Translation Station &reg; and Connect to Friends
-              and Loved Ones WithOut any Language Barier
+              Create Account JustTranslation &reg; and Connect to Friends and
+              Loved Ones WithOut any Language Barier
+              <br />
+              <br />
+              Here IS The Cool Way To Use Our App.
+              <br />
+              <br />
+              First you go to the sign up page, and sign up, then you go to the
+              sign in page and sign in! That will lead you to our chat window
+              where you can connect with friends and families.
             </p>
           </div>
         </div>
