@@ -269,19 +269,20 @@ io.on("connection", socket => {
 
         User.findById(data.senderId).then(dbUser => {
           data.sender = dbUser.fullName;
+          console.log(data.message);
+          console.log(userLang);
+
+          translate.translate(data.message, userLang, function(err, res) {
+            console.log(res);
+            data.messageT = res;
+            console.log(data);
+            io.sockets.emit("chat", data);
+          });
         });
 
         // const text = "Hello, world!";
         // const target = "am";
-        console.log(data.message);
-        console.log(userLang);
 
-        translate.translate(data.message, userLang, function(err, res) {
-          console.log(res);
-          data.messageT = res;
-          console.log(data);
-          io.sockets.emit("chat", data);
-        });
         // console.log("Text:", text);
         // console.log("Translation:", translation);
 
