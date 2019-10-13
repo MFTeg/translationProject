@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
 //import LogoImg from "../../Image/logoImg.png";
 
-let socket = io(`http://localhost:3001`);
+let socket = io(`https://translation-stations.herokuapp.com/`);
 class Message extends React.Component {
   state = {
     msgContent: "",
