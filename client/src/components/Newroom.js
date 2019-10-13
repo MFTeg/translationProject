@@ -1,20 +1,20 @@
-import React from 'react';
+// import React from 'react';
 
-class Newroom extends React.Component {
+// class Newroom extends React.Component {
 
-    state = {
-        newroom: "",
-        
-    }
+//     state = {
+//         newroom: "",
 
-    render() {
-        return (
-            <div className="new-room-form">
-            <form>
-                <input id="newroom" type="text" placeholder="Create a room" required/>
-                <button id="create-room-btn" type="submit">+</button>
-            </form>
-        </div>
-        )
-    }
-}
+//     }
+
+//     render() {
+//         return (
+//             <div className="new-room-form">
+//             <form>
+//                 <input id="newroom" type="text" placeholder="Create a room" required/>
+//                 <button id="create-room-btn" type="submit">+</button>
+//             </form>
+//         </div>
+//         )
+//     }
+// }

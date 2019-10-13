@@ -279,6 +279,7 @@ io.on("connection", socket => {
         translate.translate(data.message, userLang, function(err, res) {
           console.log(res);
           data.messageT = res;
+          console.log(data);
           io.sockets.emit("chat", data);
         });
         // console.log("Text:", text);
