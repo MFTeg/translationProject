@@ -6,7 +6,7 @@ import "../Message/Message.css";
 import Footer from "../Footer/Footer";
 //import LogoImg from "../../Image/logoImg.png";
 
-let socket = io(`http://translation-stations.herokuapp.com`);
+let socket = io(`https://translation-stations.herokuapp.com`);
 class Message extends React.Component {
   state = {
     msgContent: "",
