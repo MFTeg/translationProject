@@ -61,7 +61,21 @@
 }
 
 #language {
-  color: black;
+  color: #000000;
+}
+#language::placeholder {
+  color: #000000;
+  opacity: 1; /* Firefox */
+}
+
+#language:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #000000;
+}
+
+#language::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #000000;
 }
 
 /* @media only screen and (min-width: 993px) {

@@ -3,9 +3,10 @@ import axios from "axios";
 import io from "socket.io-client";
 import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
+import Footer from "../Footer/Footer";
 //import LogoImg from "../../Image/logoImg.png";
 
-let socket = io(`https://translation-stations.herokuapp.com/`);
+let socket = io(`http://translation-stations.herokuapp.com`);
 class Message extends React.Component {
   state = {
     msgContent: "",
@@ -207,6 +208,7 @@ class Message extends React.Component {
             <div className="col s12 m3" id="containerSmallLast"></div>
           </div>
         )}
+        <Footer />
       </div>
     );
   }

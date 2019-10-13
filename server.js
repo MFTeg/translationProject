@@ -18,27 +18,27 @@ const translate = new Translate({ projectId });
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
 
-mongoose
-  .connect(
-    "mongodb://" +
-      process.env.MONGO_USERNAME +
-      ":" +
-      process.env.MONGO_PASSWORD +
-      "@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("Database connected");
-  })
-  .catch(error => {
-    console.log(error);
-  });
+// mongoose
+//   .connect(
+//     "mongodb://" +
+//       process.env.MONGO_USERNAME +
+//       ":" +
+//       process.env.MONGO_PASSWORD +
+//       "@cluster0-shard-00-00-updmb.mongodb.net:27017,cluster0-shard-00-01-updmb.mongodb.net:27017,cluster0-shard-00-02-updmb.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
+//     { useNewUrlParser: true }
+//   )
+//   .then(() => {
+//     console.log("Database connected");
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
 
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
 
 app.use(bodyParser.json());
 
