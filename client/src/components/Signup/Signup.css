@@ -76,3 +76,7 @@ input {
   margin-top: 50px;
   color: #075496;
 }
+
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  border-bottom: 1px solid teal !important;
+}

@@ -33,6 +33,9 @@ class Signin extends React.Component {
         // window.location.href = "/message";
         this.props.history.push("/Message");
       }
+      if (response.data.status === 403) {
+        alert("Incorrect Email or Password. Please Try Again!");
+      }
       console.log(response.data.message);
       // document.getElementById("signInStatus").innerText = response.data.message;
       // alert("Incorrect email or password");
@@ -56,7 +59,7 @@ class Signin extends React.Component {
           </div>
           <div className="containerSmallMessage">
             {/* <img className="chatImg1" alt="logoImg" src={chatImg} /> */}
-            <h4>Sign In or Create An Account</h4>
+            {/* <h4>Sign In or Create An Account</h4> */}
           </div>
         </div>
 
@@ -86,6 +89,11 @@ class Signin extends React.Component {
                 id="email"
                 onChange={event => this.signInInfo(event)}
               />
+              <span
+                class="helper-text"
+                data-error="Incorrect Email Format"
+                // data-success="right"
+              ></span>
               <label htmlFor="password">Password</label>
               <input
                 type="password"

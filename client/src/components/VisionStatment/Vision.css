@@ -12,3 +12,17 @@
   padding: 30px;
   /* height: 250px; */
 }
+
+#vision {
+  /* width: 90%; */
+  /* margin-left: 5%;
+  margin-right: 5%; */
+  height: 400px;
+  padding: 5%;
+}
+#visionImg {
+  height: 400px;
+  background-image: url("../../Image/vacChat1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

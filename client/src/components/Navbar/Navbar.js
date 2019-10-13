@@ -24,8 +24,8 @@ function Navbar(props) {
         <li className="button">
           <Link
             to="/"
-            id=""
-            className="btn-large waves-effect waves-light blue lighten-1"
+            id="btnSignout"
+            className="btn-large waves-effect waves-light lighten-1"
             onClick={() => props.signOut()}
           >
             {" "}
@@ -41,7 +41,7 @@ function Navbar(props) {
           <Link
             to="/Signup"
             id="download-button"
-            className="btn-large waves-effect waves-light blue lighten-1"
+            className="btn-large waves-effect waves-light lighten-1"
           >
             {" "}
             Sign Up
@@ -51,7 +51,7 @@ function Navbar(props) {
           <Link
             to="/Signin"
             id="download-button"
-            className="btn-large waves-effect waves-light blue lighten-1"
+            className="btn-large waves-effect waves-light lighten-1"
           >
             Sign In
           </Link>
@@ -92,7 +92,7 @@ function Navbar(props) {
 
   return (
     <nav className="navBarClass" id="navbar" role="navigation">
-      <div className="nav-wrapper container">
+      <div className="nav-wrapper container" id="navWrapperContainer">
         <a href={"/"}>
           <img className="circle" alt="logoImg" src={LogoImg} />
         </a>

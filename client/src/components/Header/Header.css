@@ -1,14 +1,33 @@
-.section {
-  background-image: url("../../Image/WorldImg.jpg");
-  margin: 20px 20px 20px 20px;
+#headerSection {
+  /* margin: 20px 20px 20px 20px; */
   height: 400px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#headerImg {
+  background-image: url("../../Image/vacChat2.jpg");
+  height: 400px;
+  background-repeat: no-repeat;
+  /* border: 2px solid ; */
+  background-size: cover;
 }
 
 #headerMessage {
   font-family: "Roboto", sans-serif;
   font-style: normal;
+  display: block;
+  margin-top: 125px;
+}
+
+#containerHeader {
+  /* background-image: url("../../Image/WorldImg.jpg"); */
+  height: 400px;
+  color: #075496;
+  /* opacity: 0.8; */
 }
 
 /* @media screen and (min-width: 980px) {
