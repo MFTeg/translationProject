@@ -1,63 +1,59 @@
+// var express = require('express');
+// var socket = require('socket.io');
+// var translate = require("yandex-translate")(
+//     "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
+// );
+// var bodyParser = require("body-parser");
 
-var express = require('express');
-var socket = require('socket.io');
-var translate = require("yandex-translate")(
-    "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
-);
-var bodyParser = require("body-parser");
+// // App setup
+// var app = express();
+// var server = app.listen(4000, function(){
+//     console.log('listening for requests on port 4000,');
+// });
 
+// // Static files
+// app.use(express.static('public'));
 
-// App setup
-var app = express();
-var server = app.listen(4000, function(){
-    console.log('listening for requests on port 4000,');
-});
+// // Socket setup & pass server
+// var io = socket(server);
+// io.on('connection', (socket) => {
 
-// Static files
-app.use(express.static('public'));
+//     console.log('made socket connection', socket.id);
 
-// Socket setup & pass server
-var io = socket(server);
-io.on('connection', (socket) => {
+//     // Handle chat event
+//     socket.on('chat', function(data){
+//         console.log(data.handle)
+//         console.log(data.message)
+//         console.log(data.language)
 
-    console.log('made socket connection', socket.id);
+//         var lang;
 
-    // Handle chat event
-    socket.on('chat', function(data){
-        console.log(data.handle)
-        console.log(data.message)
-        console.log(data.language)
-   
-        var lang;
+//         if(data.language ==="french"){
+//             lang = 'fr'
+//         }
+//         if(data.language ==="english"){
+//             lang = 'en'
+//         }
+//         if(data.language ==="spanish"){
+//             lang = 'es'
+//         }
+//         translate.translate(data.messageT, { to: lang }, function(err, res) {
+//         console.log(res.text);
+//         data.messageT = res.text
+//         io.sockets.emit('chat', data);
+//         });
+//     });
 
-        if(data.language ==="french"){
-            lang = 'fr'
-        }
-        if(data.language ==="english"){
-            lang = 'en'
-        }
-        if(data.language ==="spanish"){
-            lang = 'es'
-        }
-        translate.translate(data.messageT, { to: lang }, function(err, res) {
-        console.log(res.text);
-        data.messageT = res.text
-        io.sockets.emit('chat', data);
-        });
-    });
+//     // Handle typing event
+//     socket.on('typing', function(data){
+//         socket.broadcast.emit('typing', data);
+//     });
 
-    // Handle typing event
-    socket.on('typing', function(data){
-        socket.broadcast.emit('typing', data);
-    });
+//     io.sockets.on('connection', function(socket) {
+//         socket.on('create', function(room) {
+//           socket.join(newRoom);
+//           console.log(newroom)
+//         });
+//       });
 
-    io.sockets.on('connection', function(socket) {
-        socket.on('create', function(room) {
-          socket.join(newRoom);
-          console.log(newroom)
-        });
-      });
-
-});
-
-
+// });

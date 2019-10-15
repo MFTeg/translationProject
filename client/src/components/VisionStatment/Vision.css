@@ -26,3 +26,9 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@media screen and (max-width: 980px) {
+  #vision {
+    height: auto;
+  }
+}

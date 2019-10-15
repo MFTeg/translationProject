@@ -15,3 +15,9 @@
   font-size: 100px;
   color: #075496;
 }
+
+@media screen and (max-width: 980px) {
+  #ourServices {
+    height: auto;
+  }
+}
