@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://translation-stations.herokuapp.com",
   "dependencies": {
     "@material-ui/core": "^4.4.3",
     "@pusher/chatkit-client": "^1.12.1",
