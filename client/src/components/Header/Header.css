@@ -38,3 +38,9 @@
     margin-top: 125px;
   }
 }*/
+
+@media screen and (max-width: 980px) {
+  #containerHeader {
+    background-color: #ffffff;
+  }
+}
