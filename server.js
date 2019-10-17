@@ -3,8 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const socket = require("socket.io");
-const translate = require("google-translate-api");
-//const { Translate } = require("@google-cloud/translate");
+const { Translate } = require("@google-cloud/translate");
 // const translate = require("yandex-translate")(
 //   "trnsl.1.1.20190829T040235Z.890db9d479f85b75.1b22e9727b69710bd1383f08aefedc29257a1853"
 // );
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 const User = require("./models/user.js");
 const Message = require("./models/message");
 const projectId = process.env.PROJECT_ID;
-//const translate = new Translate({ projectId });
+const translate = new Translate({ projectId });
 
 // console.log(process.env.MONGO_USERNAME);
 // console.log(process.env.MONGO_PASSWORD);
@@ -273,25 +272,13 @@ io.on("connection", socket => {
           console.log(data.message);
           console.log(userLang);
 
-          translate(data.message, { to: "es" })
-            .then(res => {
-              console.log(res);
-              data.messageT = res;
-              console.log(data);
-              io.sockets.emit("chat", data);
-            })
-            .catch(err => {
-              console.log(err);
-            });
+          translate.translate(data.message, userLang, function(err, res) {
+            console.log(res);
+            data.messageT = res;
+            console.log(data);
+            io.sockets.emit("chat", data);
+          });
         });
-        // async function translateText(text, target) {
-        //   let [translations] = await translate.translate(text, target);
-        //   console.log(translations);
-        //   data.messageT = translations;
-        //   io.sockets.emit("chat", data);
-        // }
-        // translateText(data.message, userLang);
-        // });
 
         // const text = "Hello, world!";
         // const target = "am";
