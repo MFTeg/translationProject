@@ -17,16 +17,27 @@ class Message extends React.Component {
     senderId: localStorage.getItem("_id"),
     reciverId: "",
     receiver: "",
-    receiverEmail: ""
+    receiverEmail: "",
+    messages: []
   };
 
   componentDidMount() {
+    let app = this;
     socket.on("chat", function(data) {
       console.log(data);
-      let message = document.getElementById("output").innerHTML;
-      message +=
-        "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
-      document.getElementById("output").innerHTML = message;
+      let msgArray = app.state.messages;
+      msgArray.push({
+        sender: data.sender,
+        senderId: data.senderId,
+        messageT: data.messageT
+      });
+      app.setState({
+        messages: msgArray
+      });
+      //   let message = document.getElementById("output").innerHTML;
+      //   message +=
+      //     "<p><strong>" + data.sender + ": </strong>" + data.messageT + "</p>";
+      //   document.getElementById("output").innerHTML = message;
     });
     this.getUserInfo();
   }
@@ -202,7 +213,20 @@ class Message extends React.Component {
                   </button>
 
                   <div className="chat-window">
-                    <div id="output"></div>
+                    <div id="output">
+                      {this.state.messages.map(msg => (
+                        <p
+                          className={
+                            msg.senderId === this.state.senderId
+                              ? "sender"
+                              : "receiver"
+                          }
+                        >
+                          <strong>{msg.sender}</strong>: {msg.messageT}
+                        </p>
+                      ))}
+                       
+                    </div>
                     <div id="feedback"></div>
                   </div>
                 </div>
