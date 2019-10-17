@@ -273,12 +273,16 @@ io.on("connection", socket => {
           console.log(data.message);
           console.log(userLang);
 
-          translate(data.message, { to: userLang }).then(res => {
-            console.log(res);
-            data.messageT = res;
-            console.log(data);
-            io.sockets.emit("chat", data);
-          });
+          translate(data.message, { to: "es" })
+            .then(res => {
+              console.log(res);
+              data.messageT = res;
+              console.log(data);
+              io.sockets.emit("chat", data);
+            })
+            .catch(err => {
+              console.log(err);
+            });
         });
         // async function translateText(text, target) {
         //   let [translations] = await translate.translate(text, target);
