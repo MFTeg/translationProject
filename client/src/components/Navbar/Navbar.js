@@ -1,22 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
-// import LogoImg from "../components/Image/logoImg.png";
 import LogoImg from "../../Image/logoImg.png";
 
 function Navbar(props) {
-  // let logoText = "";
-
-  // if (props.page === "message") {
-  //   logoText = (
-  //     <a href={"/"}>
-  //       <img className="circle" alt="logoImg" src={LogoImg} />
-  //     </a>
-  //   );
-  // } else {
-  //   logoText === "";
-  // }
-
   let button = "";
   if (props.page === "message") {
     button = (
@@ -69,7 +56,6 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          {/* <a href={"/Signout"}>SIGN OUT</a> */}
           <Link
             to="/"
             // id="btnSignout"
@@ -77,7 +63,7 @@ function Navbar(props) {
             onClick={() => props.signOut()}
           >
             {" "}
-            Sign Out
+            SIGN OUT
           </Link>
         </li>
       </ul>
@@ -90,7 +76,6 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          {/* <a href={"/Signin"}>SIGN IN</a> */}
           <Link
             to="/Signin"
             // id="download-button"
@@ -100,7 +85,6 @@ function Navbar(props) {
           </Link>
         </li>
         <li className="divider">
-          {/* <a href={"/Signup"}>SIGN UP</a> */}
           <Link
             to="/Signup"
             // id="download-button"
@@ -123,16 +107,10 @@ function Navbar(props) {
         <a id="logo-container" href={"/"} className="brand-logo">
           JustTranslator
         </a>
-        {/* {logoText} */}
         {button}
 
         {button2}
-        <a
-          // className="sidenavClass"
-          href={"/"}
-          data-target="nav-mobile"
-          className="sidenav-trigger"
-        >
+        <a href={"/"} data-target="nav-mobile" className="sidenav-trigger">
           <i className="material-icons" id="sideNavMenu">
             menu
           </i>
