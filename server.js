@@ -273,6 +273,9 @@ io.on("connection", socket => {
           console.log(userLang);
 
           translate.translate(data.message, userLang, function(err, res) {
+            if (err) {
+              console.log(err);
+            }
             console.log(res);
             data.messageT = res;
             console.log(data);
