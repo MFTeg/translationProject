@@ -9,7 +9,7 @@ const { Translate } = require("@google-cloud/translate");
 // );
 const app = express();
 //const PORT = process.env.PORT || 300;
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const User = require("./models/user.js");
 const Message = require("./models/message");
 
