@@ -69,7 +69,7 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          <a href={"/signout"}>SIGN OUT</a>
+          <a href={"/Signout"}>SIGN OUT</a>
         </li>
       </ul>
     );
@@ -81,10 +81,10 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          <a href={"/signin"}>SIGN IN</a>
+          <a href={"/Signin"}>SIGN IN</a>
         </li>
         <li className="divider">
-          <a href={"/signup"}>SIGN UP</a>
+          <a href={"/Signup"}>SIGN UP</a>
         </li>
       </ul>
     );
