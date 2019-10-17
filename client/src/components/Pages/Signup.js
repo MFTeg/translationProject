@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 // import Navbar from "../Navbar/Navbar";
 //import Footer from "../Footer/Footer";
@@ -298,9 +299,12 @@ class Signup extends React.Component {
               >
                 Sign Up
               </button>
-              <a href={"/signin"} className="right" id="membercheck">
+              <Link to="/Signin" className="right" id="membercheck">
                 Already A Member!
-              </a>
+              </Link>
+              {/* <a href={"/signin"} className="right" id="membercheck">
+                Already A Member!
+              </a> */}
             </div>
           </div>
           <div>{/* <Footer /> */}</div>

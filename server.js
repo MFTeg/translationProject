@@ -272,12 +272,19 @@ io.on("connection", socket => {
           console.log(data.message);
           console.log(userLang);
 
-          translate.translate(data.message, userLang, function(err, res) {
-            console.log(res);
-            data.messageT = res;
-            console.log(data);
+          // translate.translate(data.message, userLang, function(err, res) {
+          //   console.log(res);
+          //   data.messageT = res;
+          //   console.log(data);
+          //   io.sockets.emit("chat", data);
+          // });
+          async function translateText(text, target) {
+            let [translations] = await translate.translate(text, target);
+            console.log(translations);
+            data.messageT = translations;
             io.sockets.emit("chat", data);
-          });
+          }
+          translateText(data.message, userLang);
         });
 
         // const text = "Hello, world!";
