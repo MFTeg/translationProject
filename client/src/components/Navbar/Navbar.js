@@ -134,7 +134,7 @@ function Navbar(props) {
           className="sidenav-trigger"
         >
           <i className="material-icons" id="sideNavMenu">
-            &#xE5D2;
+            menu
           </i>
         </a>
       </div>

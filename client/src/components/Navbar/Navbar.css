@@ -22,6 +22,10 @@
   font-weight: 500; */
 }
 
+#logo-container {
+  padding-left: 50px;
+}
+
 #navWrapperContainer {
   width: 90%;
 }

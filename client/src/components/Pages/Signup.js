@@ -37,22 +37,27 @@ class Signup extends React.Component {
 
   signUp = () => {
     console.log(this.state); //This .state Email, password and language
-    let data = this.state;
-    axios.post("/data", data).then(response => {
-      console.log(response.data);
-      console.log(response.error);
+    let emailInput = document.getElementById("email");
+    if (emailInput.classList.contains("invalid")) {
+      alert("Incorreect Email Format");
+    } else {
+      let data = this.state;
+      axios.post("/data", data).then(response => {
+        console.log(response.data);
+        console.log(response.error);
 
-      if (response.data.errors) {
-        console.log("Login Incorrect");
-        alert("Incorrect email format please type again");
-        //window.location.href = "/signup";
-      } else {
-        console.log("Response is true, so redirecting to profile-page....");
-        // window.location.href = "/signin";
+        if (response.data.errors) {
+          console.log("Login Incorrect");
+          alert("Incorrect email format please type again");
+          //window.location.href = "/signup";
+        } else {
+          console.log("Response is true, so redirecting to profile-page....");
+          // window.location.href = "/signin";
 
-        this.props.history.push("/Signin");
-      }
-    });
+          this.props.history.push("/Signin");
+        }
+      });
+    }
   };
 
   selectLanguage = event => {
