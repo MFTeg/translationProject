@@ -5,8 +5,11 @@ import Navbar from "../Navbar/Navbar";
 import "../Message/Message.css";
 import Footer from "../Footer/Footer";
 //import LogoImg from "../../Image/logoImg.png";
+let url = window.location.href;
 
-let socket = io(`https://translation-stations.herokuapp.com`);
+let socketUrl = url.slice(0, url.lastIndexOf("/"));
+
+let socket = io(socketUrl);
 class Message extends React.Component {
   state = {
     msgContent: "",

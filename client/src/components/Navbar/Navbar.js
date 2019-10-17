@@ -112,7 +112,7 @@ function Navbar(props) {
         {button2}
         <a href={"/"} data-target="nav-mobile" className="sidenav-trigger">
           <i className="material-icons" id="sideNavMenu">
-            menu
+            &#xE5D2;
           </i>
         </a>
       </div>
