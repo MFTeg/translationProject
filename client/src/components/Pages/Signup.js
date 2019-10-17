@@ -130,7 +130,7 @@ class Signup extends React.Component {
                 onChange={event => this.signupInfo(event)}
               />
               <span
-                class="helper-text"
+                className="helper-text"
                 data-error="Incorrect Email Format"
                 //data-success="right"
               ></span>

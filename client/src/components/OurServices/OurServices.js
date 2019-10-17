@@ -7,44 +7,44 @@ import "../OurServices/OurServices.css";
 function OurServices() {
   return (
     <div id="ourServices">
-      <div class="section">
-        <div class="row">
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h2 class="center brown-text">
-                <i class="material-icons big-icon"> touch_app</i>
+      <div className="section">
+        <div className="row">
+          <div className="col s12 m4">
+            <div className="icon-block">
+              <h2 className="center brown-text">
+                <i className="material-icons big-icon"> touch_app</i>
               </h2>
-              <h5 class="center">Get Started</h5>
+              <h5 className="center">Get Started</h5>
 
-              <p class="light">
+              <p className="light">
                 It is easy to get started! Simply Sign Up, invite others to join
                 you and begin chatting.
               </p>
             </div>
           </div>
 
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h2 class="center brown-text">
-                <i class="material-icons big-icon">group</i>
+          <div className="col s12 m4">
+            <div className="icon-block">
+              <h2 className="center brown-text">
+                <i className="material-icons big-icon">group</i>
               </h2>
-              <h5 class="center">Perfect For Everyone</h5>
+              <h5 className="center">Perfect For Everyone</h5>
 
-              <p class="light">
+              <p className="light">
                 This is a public app that allows you to chat directly across the
                 world with some of the world's popular languages.
               </p>
             </div>
           </div>
 
-          <div class="col s12 m4">
-            <div class="icon-block">
-              <h2 class="center brown-text">
-                <i class="material-icons big-icon">insert_emoticon</i>
+          <div className="col s12 m4">
+            <div className="icon-block">
+              <h2 className="center brown-text">
+                <i className="material-icons big-icon">insert_emoticon</i>
               </h2>
-              <h5 class="center">Add Personal Touch</h5>
+              <h5 className="center">Add Personal Touch</h5>
 
-              <p class="light"></p>
+              <p className="light"></p>
             </div>
           </div>
         </div>

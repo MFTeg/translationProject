@@ -90,7 +90,7 @@ class Signin extends React.Component {
                 onChange={event => this.signInInfo(event)}
               />
               <span
-                class="helper-text"
+                className="helper-text"
                 data-error="Incorrect Email Format"
                 // data-success="right"
               ></span>
