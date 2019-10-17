@@ -69,7 +69,16 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          <a href={"/Signout"}>SIGN OUT</a>
+          {/* <a href={"/Signout"}>SIGN OUT</a> */}
+          <Link
+            to="/"
+            // id="btnSignout"
+            // className="btn-large waves-effect waves-light lighten-1"
+            onClick={() => props.signOut()}
+          >
+            {" "}
+            Sign Out
+          </Link>
         </li>
       </ul>
     );
@@ -81,10 +90,25 @@ function Navbar(props) {
         </li>
         <li className="divider">
           {" "}
-          <a href={"/Signin"}>SIGN IN</a>
+          {/* <a href={"/Signin"}>SIGN IN</a> */}
+          <Link
+            to="/Signin"
+            // id="download-button"
+            // className="btn-large waves-effect waves-light lighten-1"
+          >
+            SIGN IN
+          </Link>
         </li>
         <li className="divider">
-          <a href={"/Signup"}>SIGN UP</a>
+          {/* <a href={"/Signup"}>SIGN UP</a> */}
+          <Link
+            to="/Signup"
+            // id="download-button"
+            // className="btn-large waves-effect waves-light lighten-1"
+          >
+            {" "}
+            SIGN UP
+          </Link>
         </li>
       </ul>
     );
